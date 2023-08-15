@@ -76,7 +76,7 @@
 </template>
 
 <script>
-import ForumHeader from '@/pages/common/ForumHeader'
+// import ForumHeader from '@/pages/common/ForumHeader'
 import {listExpert} from "@/api/expert";
 import {listComment,addComment} from "@/api/comment";
 import { getToken } from '@/common/js/auth'
@@ -88,7 +88,7 @@ export default {
   name: 'CompanyPage',
   components: {
     PeopleCarousel,
-    ForumHeader
+    // ForumHeader
   },
   data () {
     return {

@@ -13,13 +13,13 @@
 </template>
 
 <script>
-import CommonBanner from "@/pages/common/Banner";
+// import CommonBanner from "@/pages/common/Banner";
 import { getProfile } from "@/api/profile";
 
 export default {
   name: "CompanyPage",
   components: {
-    CommonBanner,
+    // CommonBanner,
   },
   data() {
     return {

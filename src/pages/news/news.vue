@@ -1,10 +1,8 @@
 <template>
   <div>
-<!--    <common-banner style="background-color: #c2e7b0" :imgSrc="imgPath" :imgLabel="imgLabel"></common-banner>-->
     <div style="padding: 0 10%">
-      <div class="coordinate">
-        <div class="coordinate-left"><img  src="../../assets/images/coordinate.png"></div>
-        <div class="coordinate-right">当前位置: 首页&nbsp;-&nbsp;&nbsp;{{$route.query.navType}}</div>
+      <div class="coordinates">
+        <div class="coordinate-right">{{ $route.query.navType }}</div>
       </div>
       <el-row class="forthDiv padding-10">
         <el-row :gutter="24">
@@ -43,13 +41,13 @@
 </template>
 
 <script>
-import CommonBanner from '@/pages/common/Banner'
+// import CommonBanner from '@/pages/common/Banner'
 import { listNews } from "@/api/news";
 
 export default {
   name: 'CompanyPage',
   components: {
-    CommonBanner,
+    // CommonBanner,
   },
   data () {
     return {
@@ -138,11 +136,17 @@ export default {
   font-family: SourceHanSansSC-regular;
   justify-content: flex-start;
 }
-/*.coordinate-bottom{*/
-/*  !*margin: 10px 84px;*!*/
-/*  border-bottom: 1px dashed rgba(187, 187, 187, 1);*/
-/*}*/
 .padding-10 {
   padding: 10px 0 40px 0;
 }
+.coordinates {
+  text-align: center;
+  font-size: 32px;
+  font-family: AppleSystemUIFont;
+  color: #262729;
+  line-height: 23px;
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
 </style>

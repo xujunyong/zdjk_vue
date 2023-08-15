@@ -37,6 +37,8 @@
         <div class="consultation-containers">
           <el-row class="secondDivs">
             <div class="whole_process_consultation">中地全过程咨询论坛</div>
+            <div class="secondDivsimg" @click="goForumHome">
+            </div>
             <div class="forum">
               <div
                 v-for="(item, index) in articles"
@@ -61,11 +63,11 @@
                 </div>
               </div>
             </div>
-            <el-row style="display: flex; justify-content: center">
+            <!-- <el-row style="display: flex; justify-content: center">
               <el-button class="border-btn" v-on:click="goForumHome"
                 >MORE</el-button
               >
-            </el-row>
+            </el-row> -->
           </el-row>
         </div>
         <!-- 专家列表 -->
@@ -436,6 +438,15 @@ export default {
 }
 .coordinate-left {
   margin-top: 4px;
+}
+.secondDivsimg {
+  position: absolute;
+  right: 0;
+  top: 98px;
+  width: 168px;
+  height: 68px;
+  background-size: cover;
+  background-image: url('../../../assets/images/lmore.png');
 }
 .forum {
   display: flex;

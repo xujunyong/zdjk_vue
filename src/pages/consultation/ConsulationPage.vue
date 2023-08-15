@@ -37,10 +37,10 @@
 </template>
 
 <script>
-import CommonBanner from "@/pages/common/Banner";
-import CommonMain from "@/pages/common/Main";
-import IntroducePage from "./components/Introduce";
-import NewsPage from "./components/News";
+// import CommonBanner from "@/pages/common/Banner";
+// import CommonMain from "@/pages/common/Main";
+// import IntroducePage from "./components/Introduce";
+// import NewsPage from "./components/News";
 import wenjianjia from "../../assets/images/wenjianjia_1.png";
 import xuke from "../../assets/images/xuke.png";
 import banli from "../../assets/images/banli.png";
@@ -59,10 +59,10 @@ import gongsijianjie from "../../assets/images/gongsijianjie.png";
 export default {
   name: "CompanyPage",
   components: {
-    CommonBanner,
-    CommonMain,
-    IntroducePage,
-    NewsPage,
+    // CommonBanner,
+    // CommonMain,
+    // IntroducePage,
+    // NewsPage,
   },
   data() {
     return {

@@ -64,17 +64,17 @@
 </template>
 
 <script>
-import CommonBanner from "@/pages/common/Banner";
-import CommonMain from "@/pages/common/Main";
-import ListPage from "./components/List";
+// import CommonBanner from "@/pages/common/Banner";
+// import CommonMain from "@/pages/common/Main";
+// import ListPage from "./components/List";
 import { listExpert } from "../../api/expert";
 
 export default {
   name: "Professor",
   components: {
-    CommonBanner,
-    CommonMain,
-    ListPage,
+    // CommonBanner,
+    // CommonMain,
+    // ListPage,
   },
   data() {
     return {

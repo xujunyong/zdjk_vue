@@ -211,7 +211,7 @@ export default {
 .login-left {
   width: 700px;
   background-size: cover;
-  background-image: url('../../assets/images/login_body.jpg');
+  background-image: url('../../assets/images/login.png');
 }
 
 .login-left img {

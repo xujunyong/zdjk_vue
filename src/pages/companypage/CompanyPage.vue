@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import CommonBanner from '@/pages/common/Banner'
+// import CommonBanner from '@/pages/common/Banner'
 import CommonMain from '@/pages/common/Main'
-import IntroducePage from './components/Introduce'
+// import IntroducePage from './components/Introduce'
 import NewsPage from './components/News'
 import { listData } from "@/api/dict/data";
 import { listConsultation } from "@/api/consultation";
@@ -26,9 +26,9 @@ import { listConsultation } from "@/api/consultation";
 export default {
   name: 'CompanyPage',
   components: {
-    CommonBanner,
+    // CommonBanner,
     CommonMain,
-    IntroducePage,
+    // IntroducePage,
     NewsPage
   },
   data () {
