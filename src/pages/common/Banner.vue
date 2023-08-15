@@ -1,5 +1,4 @@
 <template>
-  <!--  <el-container>-->
   <div style="height:625px;">
     <el-carousel height="625px">
       <el-carousel-item v-for="item in pics" :key="item.id">
@@ -8,20 +7,13 @@
           <el-col :span="24" style="text-align: center" v-on:click="iconClick">
             <img v-on:click="iconClick" class="logo" src="@/assets/images/logo-diaphragm.png" alt="logo">
           </el-col>
-          <!--              <el-col :span="16"  >-->
-          <!--                <div class="logo_c">-->
-          <!--                  <strong v-on:click="iconClick" >中地基勘工程技术有限公司</strong>-->
-          <!--                </div>-->
-          <!--                <div class="logo_e">-->
-          <!--                  <strong v-on:click="iconClick" >China Foundation Prospecting Engineering Technology Co., LTD</strong>-->
-          <!--                </div>-->
-          <!--              </el-col>-->
-
         </div>
       </el-carousel-item>
     </el-carousel>
+    <!-- <div class="home-bottom">
+      <img src="../../assets/images/joinus.png" alt="" />Welcome to join us
+    </div> -->
   </div>
-  <!--  </el-container>-->
 </template>
 
 <script>
@@ -116,4 +108,20 @@
   .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
   }
+
+  .home-bottom {
+    font-size: 16px;
+    font-family: AppleSystemUIFont;
+    color: #FFFFFF;
+    text-align: center;
+    width: 100%;
+    height: 80px;
+    background: #1D263A;
+    align-items: center;
+  }
+  .home-bottom img {
+    width: 24px;
+    height: 24px;
+  }
+
 </style>

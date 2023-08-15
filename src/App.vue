@@ -28,12 +28,6 @@ export default {
 
   },
   mounted () {
-    // this.$router.push('/website')
-
-    // console.log(this.userName)
-    // if (this.$router.history.current && this.$router.history.current.path) {
-    //   this.currentPath = this.$router.history.current.path
-    // }
   }
 }
 </script>
