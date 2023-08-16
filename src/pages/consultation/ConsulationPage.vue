@@ -26,8 +26,8 @@
               <el-image :src="item.icon" />
             </div>
             <div class="con-box-name">
-                <span>{{ item.name }}</span>
-              </div>
+              <span>{{ item.name }}</span>
+            </div>
             <div class="con-box-bottom">点击进入 >></div>
           </div>
         </el-col>
@@ -163,7 +163,7 @@ export default {
       if (index < 7) {
         this.$router.push({
           path: "/website/company",
-          query: { navType: navName, dictType: dictType, initKey: initKey },
+          query: { navType: navName, dictType: dictType, initKey: initKey, activeIndex: index },
         });
       }
     },

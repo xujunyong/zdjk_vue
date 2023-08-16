@@ -11,7 +11,7 @@
           <el-menu-item v-for="(menu, index) in menus" :key="menu.id" :index="index.toString()">
             <img v-if="activeIndex == index" class="side-menu-img" src="../../assets/images/aqypgy.png" />
             <img v-else class="side-menu-img" src="../../assets/images/aqypgn.png" />
-            <span class="side-menu-lebel">{{menu.label}}</span>
+            <div class="side-menu-lebel">{{menu.label}}</div>
           </el-menu-item>
         </el-menu>
       </el-col>
@@ -40,7 +40,8 @@ export default {
     },
     menus: {
       type: Array,
-      required: true
+      required: true,
+      default: () => []
     }
   },
   data () {
@@ -52,7 +53,7 @@ export default {
     this.init();
   },
   created () {
-    this.init();
+    // this.init();
   },
   methods: {
     init(){
@@ -71,8 +72,10 @@ export default {
   },
   computed: {
     contentTitle () {
-      let index = this.activeIndex;
-      let label = this.menus[index].label
+      console.log('menus', this.menus)
+      const index = this.activeIndex;
+      const dict = this.menus[index] || {}
+      const { label = ''} = dict
       return label;
     },
     className () {
@@ -84,6 +87,7 @@ export default {
 
 <style scoped>
 .side-menu >>> li {
+  display: flex;
   height: 57px !important;
   align-items: center;
   padding: 0 !important;
@@ -116,14 +120,27 @@ export default {
   margin: 0;
 }
 .side-menu-img {
+  display: flex;
   margin-left: 15px;
   margin-right: 14px;
   height: 24px;
   width: 24px;
 }
 .side-menu-lebel{
-  font-size: 18px;
+  display: flex;
+  /* font-size: 18px; */
   font-family: SourceHanSansSC-regular;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  overflow: hidden;
+  margin-right: 20px;
+  font-size: 16px;
+  font-family: AppleSystemUIFont;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  overflow: hidden;
 }
 .side-menu-title>i {
   font-size: 1.5rem;
