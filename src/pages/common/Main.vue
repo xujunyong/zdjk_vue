@@ -1,22 +1,21 @@
 <template>
   <el-container :class="className">
     <el-row style="width: 100%;">
-      <el-col :span="6">
-        <h3 class="side-menu-title">
-          {{title}}
-        </h3>
+      <el-col :span="6" style="margin-right: 30px;">
         <el-menu
           @select="handleSelect"
           active-text-color="#005393"
-          :default-active= this.activeIndex.toString()
+          :default-active= activeIndex.toString()
           class="side-menu"
           >
-          <el-menu-item style="text-align: center; margin: 10px 0; font-size: 20px; color: #101010; background-color: rgba(249, 249, 249, 1);width: 262px; height: 80px; line-height: 80px;" v-for="(menu, index) in menus" :key="menu.id" :index="index.toString()">
-              <span class="side-menu-lebel">{{menu.label}}</span>
+          <el-menu-item v-for="(menu, index) in menus" :key="menu.id" :index="index.toString()">
+            <img v-if="activeIndex == index" class="side-menu-img" src="../../assets/images/aqypgy.png" />
+            <img v-else class="side-menu-img" src="../../assets/images/aqypgn.png" />
+            <span class="side-menu-lebel">{{menu.label}}</span>
           </el-menu-item>
         </el-menu>
       </el-col>
-      <el-col :span="18">
+      <el-col :span="17">
         <div class="box-card">
           <div slot="header" >
             <strong class="content-title">{{contentTitle}}</strong>
@@ -84,17 +83,19 @@ export default {
 </script>
 
 <style scoped>
-.content-title{
-  color: rgba(0, 83, 147, 1);
-  font-size: 28px;
-  text-align: left;
-  font-family: SourceHanSansSC-medium;
-  border-bottom: 1px solid #eeeeee;
-  display: block;
-  padding-bottom: 20px;
+.side-menu >>> li {
+  height: 57px !important;
+  align-items: center;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 57px !important;
+  text-align: left !important;
+  border-radius: 10px !important;
+  /* background: #ffffff; */
 }
-.side-menu li {
-  border-bottom: 1px solid #fff;
+.side-menu >>> .is-active {
+  background: rgba(5, 193, 211, 1);
+  color: #fff !important;
 }
 .side-menu-title {
   width: 262px;
@@ -109,20 +110,20 @@ export default {
 }
 .side-menu{
   line-height: 20px;
-  /*color: rgba(0, 83, 147, 1);*/
   font-size: 20px;
-  /*text-align: center;*/
   font-family: SourceHanSansSC-regular;
   width: 262px;
   margin: 0;
 }
+.side-menu-img {
+  margin-left: 15px;
+  margin-right: 14px;
+  height: 24px;
+  width: 24px;
+}
 .side-menu-lebel{
   font-size: 18px;
   font-family: SourceHanSansSC-regular;
-  /*max-width: 100%;*/
-  /*display: inline-block;*/
-  /*text-overflow: ellipsis;*/
-  /*overflow: hidden;*/
 }
 .side-menu-title>i {
   font-size: 1.5rem;
@@ -138,15 +139,21 @@ export default {
 .el-card__header {
   padding: 1.7rem 2rem;
 }
-.box-card strong {
-  color: rgba(0, 83, 147, 1);
-  font-size: 28px;
-  text-align: left;
-  font-family: SourceHanSansSC-medium;
+.box-card {
+  font-size: 18px;
+  background: rgba(249, 250, 251, 1);
+  border-radius: 10px;
+  padding: 19px 41px 31px 49px;
+}
+.content-title {
+  height: 22px;
+  font-size: 18px;
+  font-family: AppleSystemUIFont;
+  color: #000000;
+  line-height: 22px;
 }
 .jq-content {
-  padding: 20px 0;
-  font-size: 18px;
-  color: #101010;
+  color: #333333;
+  font-size: 16px;
 }
 </style>

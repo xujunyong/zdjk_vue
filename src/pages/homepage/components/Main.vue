@@ -441,12 +441,12 @@ export default {
 }
 .secondDivsimg {
   position: absolute;
-  right: 0;
-  top: 98px;
+  right: 76px;
+  top: 99px;
   width: 168px;
   height: 68px;
   background-size: cover;
-  background-image: url('../../../assets/images/lmore.png');
+  background-image: url('../../../assets/images/nmores.png');
 }
 .forum {
   display: flex;
