@@ -46,6 +46,10 @@
         <img src="../../assets/images/joinus.png" alt="" />Welcome to join us
       </div>
     </el-container>
+    <div class="home-erweima">
+      <img class="home-img" src="../../assets/images/qrcode.jpg" />
+      关注微信公众号
+    </div>
   </div>
 </template>
 
@@ -134,7 +138,7 @@ export default {
       }
     },
     handleSelect(val) {
-      debugger
+      debugger;
       this.activeIndex = val;
       this.name = "0";
       const path = this.menus[val].path;
@@ -282,4 +286,28 @@ $header-text-color: #005393;
   height: 24px;
   margin-right: 7px;
 }
+.home-erweima {
+  position: fixed;
+  width: 160px;
+  height: 180px;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 10px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+  text-align: center;
+  align-items: center;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+.home-img {
+  display: block;
+  width: 120px;
+  height: 120px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
 </style>

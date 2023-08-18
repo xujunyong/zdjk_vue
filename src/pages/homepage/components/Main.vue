@@ -37,8 +37,7 @@
         <div class="consultation-containers">
           <el-row class="secondDivs">
             <div class="whole_process_consultation">中地全过程咨询论坛</div>
-            <div class="secondDivsimg" @click="goForumHome">
-            </div>
+            <div class="secondDivsimg" @click="goForumHome"></div>
             <div class="forum">
               <div
                 v-for="(item, index) in articles"
@@ -56,7 +55,7 @@
                   {{ item.title }}
                 </div>
                 <div class="secondDivContents-content-container">
-                  {{ item.digest }} {{ item.digest }}
+                  {{ item.digest }}
                 </div>
                 <div class="secondDivContents-title" style="font-size: 14px">
                   {{ item.createdTime }}
@@ -446,7 +445,7 @@ export default {
   width: 168px;
   height: 68px;
   background-size: cover;
-  background-image: url('../../../assets/images/nmores.png');
+  background-image: url("../../../assets/images/nmores.png");
 }
 .forum {
   display: flex;
@@ -479,12 +478,12 @@ export default {
 .last {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  box-shadow: 0px 54px 100px 0px rgba(10,4,60,0.08);
+  box-shadow: 0px 54px 100px 0px rgba(10, 4, 60, 0.08);
 }
 .evennumber {
   background: #ffffff;
   font-family: AppleSystemUIFont;
-  color: #05C1D3;
+  color: #05c1d3;
 }
 
 .secondDivContents:hover .secondDivContents-title {

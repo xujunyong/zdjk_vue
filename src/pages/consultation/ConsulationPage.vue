@@ -18,7 +18,7 @@
                 item.name,
                 item.dictType,
                 item.initKey,
-                index
+                item.activeIndex
               )
             "
           >
@@ -74,6 +74,7 @@ export default {
           name: "立项手续",
           dictType: "consultation_procedures",
           initKey: 109,
+          activeIndex: 0,
           content: [
             { contentName: "立项审批", contentKey: 109, activeIndex: 0 },
             { contentName: "环境影响评价", contentKey: 110, activeIndex: 1 },
@@ -85,6 +86,7 @@ export default {
           name: "踩矿许可证办理",
           dictType: "consultation_mining_license",
           initKey: 114,
+          activeIndex: 0,
           content: [
             { contentName: "勘探报告及专家评审", url: "" },
             { contentName: "开发利用方案及专家评审意见", url: "" },
@@ -96,6 +98,7 @@ export default {
           name: "安全生产许可证及职业卫生办理",
           dictType: "consultation_safe_production",
           initKey: 117,
+          activeIndex: 0,
           content: [
             { contentName: "安全预评价", url: "" },
             { contentName: "安全设施设计", url: "" },
@@ -107,6 +110,7 @@ export default {
           name: "土地使用手续办理",
           dictType: "consultation_landuse",
           initKey: 122,
+          activeIndex: 0,
           content: [
             { contentName: "林草占用批复", url: "" },
             { contentName: "土地征收", url: "" },
@@ -118,6 +122,7 @@ export default {
           name: "水利审批事项",
           dictType: "consultation_water_conservancy_approval",
           initKey: 125,
+          activeIndex: 0,
           content: [
             { contentName: "水土保持方案", url: "" },
             { contentName: "取水许可证", url: "" },
@@ -129,6 +134,7 @@ export default {
           name: "施工阶段",
           dictType: "consultation_construction_stage",
           initKey: 128,
+          activeIndex: 0,
           content: [
             { contentName: "地形测绘", url: "" },
             { contentName: "岩土工程勘查", url: "" },
@@ -140,6 +146,7 @@ export default {
           name: "竣工验收",
           dictType: "consultation_completion_acceptance",
           initKey: 132,
+          activeIndex: 0,
           content: [
             { contentName: "竣工验收", url: "" },
             { contentName: "环保验收", url: "" },
