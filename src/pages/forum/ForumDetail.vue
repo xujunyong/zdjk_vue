@@ -24,7 +24,7 @@
 <!--            <div class="forum-experts-name" v-on:click ="goProfessorDetail(o)">{{ o.name }}</div>-->
 <!--          </div>-->
 <!--        </div>-->
-        <people-carousel style="padding: 0 16px;" :data="experts" />
+        <people-carousel :data="experts" />
       </div>
 
       <div class="forumDetailExperts firstDiv">

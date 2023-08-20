@@ -70,55 +70,39 @@
           </el-row>
         </div>
         <!-- 专家列表 -->
-        <el-row class="thirdDiv">
-          <div class="whole_process_consultation">专家列表</div>
-          <people-carousel
-            ref="PeopleCarousel"
-            :data="experts"
-            @imgClick="goProfessorDetail"
-          />
+        <el-row class="thirdDiv expert-list">
+          <div class="div-mask">
+            <div class="expert-list-title">专家列表</div>
+            <people-carousel
+              ref="PeopleCarousel"
+              :data="experts"
+              @imgClick="goProfessorDetail"
+            />
+          </div>
+
         </el-row>
         <!-- 新闻中心 -->
         <div class="forthDivContainer">
           <el-row class="forthDiv">
-            <div class="whole_process_consultation">新闻中心</div>
-            <div class="news-container">
-              <div class="news-content" v-for="(o, index) in news" :key="index">
-                <el-card :body-style="{ padding: 0 }">
-                  <img
-                    :src="o.summaryUrl"
-                    class="new-img"
-                    v-on:click="goProfessorDetail(o)"
-                  />
-                  <div style="padding: 0 14px">
-                    <div
-                      style="font-size: 20px; margin: 15px 0 15px 0"
-                      v-on:click="goProfessorDetail(o)"
-                    >
-                      {{ o.title }}
-                    </div>
-                    <div style="font-size: 16px" class="newsLine">
-                      {{ o.summary | ellipsis }}
-                    </div>
-                    <div class="bottom" style="overflow: hidden; height: 28px">
-                      <span style="float: left; color: #797979">{{
-                        o.createdTime
-                      }}</span>
-                      <span
-                        style="float: right; color: #005393; cursor: pointer"
-                        v-on:click="goProfessorDetail(o)"
-                        >更多>></span
-                      >
-                    </div>
+            <div class="news-center-title">新闻中心</div>
+            <el-carousel indicator-position="outside"  height="424px" arrow="never">
+              <el-carousel-item v-for="(item, index) in news" :key="index">
+                <div class="news-content-wrap" @click="goProfessorDetail(item)">
+                  <div class="news-content">
+                    <!--<div class="news-content-title">{{ item.title }}</div>-->
+                    <!--<div class="news-content-text">{{item.content}}</div>-->
+                    <div class="news-content-title">这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题</div>
+                    <div class="news-content-text">这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容</div>
                   </div>
-                </el-card>
-              </div>
-            </div>
+                  <img class="news-image" :src="item.summaryUrl" alt="">
+                </div>
+              </el-carousel-item>
+            </el-carousel>
           </el-row>
         </div>
 
-        <el-row class="fifthDiv">
-          <div class="whole_process_consultation">公司简介</div>
+        <el-row class="fifthDiv company-desc-wrap">
+          <div class="company-desc-title">公司简介</div>
           <div style="margin-top: 50px">
             <profiles-carousel
               ref="ProfilesCarousel"
@@ -393,6 +377,7 @@ export default {
       this.loading = true;
       this.queryParams.pageSize = 4;
       listExpert().then((response) => {
+          console.log('response.data.rows', response.data.rows)
         this.experts = response.data.rows;
         this.expertTotal = response.data.total;
       });
@@ -409,13 +394,42 @@ export default {
 <style scoped>
 .firstDiv,
 .secondDiv,
-.thirdDiv,
 .forthDiv,
 .fifthDiv {
   margin: 0 auto;
   width: 1280px;
   overflow: hidden;
-  padding: 60px 0 80px 0;
+  padding: 60px 0 0;
+}
+.thirdDiv {
+  width: 100%;
+  height: 800px;
+  opacity: 1;
+  background-image: url(https://img.js.design/assets/img/6499bbc30fb19817d661c625.jpg#28f9233d2432cb7520f7935eeb1d4e2a);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.div-mask {
+  width: 100%;
+  height:100%;
+  padding: 40px 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /*background-color: rgba(0, 0, 0, 0.8);*/
+  background-color: rgba(29, 38, 58, 0.8);
+}
+.expert-list-title {
+  width:100%;
+  height:120px;
+  line-height: 120px;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -1px;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  vertical-align: top;
 }
 .title-shadow {
   height: 90px;
@@ -737,6 +751,9 @@ export default {
 .el-carousel__item:nth-child(2n + 1) {
   background-color: #d3dce6;
 }
+.forthDivContainer .el-carousel__item {
+  background-color: #FFF;
+}
 .consultation-containers {
   padding: 0 12%;
 }
@@ -768,4 +785,71 @@ export default {
   font-family: AppleSystemUIFont;
   color: #05c1d3;
 }
+  .news-center-title {
+    margin: 20px 0 100px;
+    text-align: center;
+    height: 46px;
+    font-size: 32px;
+    font-family: AppleSystemUIFont;
+    color: #262729;
+    line-height: 46px;
+  }
+  .news-content-wrap {
+    background: #FFF;
+    width: 100%;
+    height: 364px;
+    display: flex;
+  }
+  .news-content {
+    flex: 1;
+    padding: 55px 177px 55px 0;
+  }
+  .news-image {
+    width: 600px;
+    height: 364px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+  }
+  .news-content-title {
+    margin-bottom: 58px;
+    width: 100%;
+    height: 122px;
+    font-size: 42px;
+    font-family: AppleSystemUIFont;
+    color: #262729;
+    line-height: 61px;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .news-content-text {
+    height: 74px;
+    font-size: 17px;
+    font-family: AppleSystemUIFont;
+    color: #262729;
+    line-height: 25px;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .expert-list {
+    margin-top: 80px;
+  }
+  .company-desc-title {
+    margin: 20px 0 50px;
+    text-align: center;
+    height: 46px;
+    font-size: 32px;
+    font-family: AppleSystemUIFont;
+    color: #262729;
+    line-height: 46px;
+  }
+  .company-desc-wrap {
+    margin-bottom: 80px;
+  }
 </style>

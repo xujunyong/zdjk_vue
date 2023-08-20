@@ -1,6 +1,12 @@
 'use strict'
 const path = require('path')
 
+const px2rem = require('postcss-px2rem')
+
+const postcss = px2rem({
+  remUnit: 16   //基准大小 baseSize，需要和rem.js中相同
+})
+
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
@@ -57,6 +63,15 @@ module.exports = {
     resolve: {
       alias: {
         '@': resolve('src')
+      }
+    }
+  },
+  css: {
+    loaderOptions: {
+      postcss: {
+        plugins: [
+          postcss
+        ]
       }
     }
   },

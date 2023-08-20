@@ -151,7 +151,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .register {
   display: flex;
   justify-content: center;
