@@ -1,22 +1,28 @@
 <template>
   <div>
-    <div style="padding: 0 10%">
-      <div class="coordinates">
+    <div style="padding: 0 12%">
+      <div class="coordinates-new">
         <div class="coordinate-right">{{ $route.query.navType }}</div>
       </div>
-      <el-row class="forthDiv padding-10">
+      <el-row class="forthDiv">
         <el-row :gutter="24">
-          <el-col :span="8" v-for="(item, index) in news" :key="index"  >
-            <el-card :body-style="{ padding: '0px' }" >
-              <img :src="item.summaryUrl"
-                   style="width: 100%;display: block">
-              <div style="padding: 14px;">
-                <span style="line-height: 30px;font-size: 20px">{{item.title}}</span>
-                <div style="line-height: 20px;font-size: 16px" class="newsLine">{{item.summary | ellipsis}}
+          <el-col
+            :span="8"
+            v-for="(item, index) in news"
+            :key="index"
+            style="margin-bottom: 20px"
+          >
+            <el-card class="forthDiv-card" :body-style="{ padding: '0px' }">
+              <div @click="goDetail(item)" style="cursor: pointer">
+                <div class="card-img">
+                  <img :src="item.summaryUrl" />
                 </div>
-                <div class="bottom" style="overflow: hidden;height: 28px;">
-                  <span style="float: left; color: #797979;">{{ item.createdTime }}</span>
-                  <span style="float: right;color: #005393; cursor: pointer;" v-on:click ="goDetail(item)">更多>></span>
+                <div class="card-title">
+                  {{ item.title }}
+                </div>
+                <div class="card-content">{{ item.summary | ellipsis }}</div>
+                <div class="card-bottom">
+                  {{ item.createdTime }}
                 </div>
               </div>
             </el-card>
@@ -25,18 +31,17 @@
       </el-row>
 
       <el-pagination
-        style="text-align: center;margin: 20px"
+        style="text-align: center; margin: 20px"
         background
         layout="prev, pager, next"
-        v-show="total>0"
+        v-show="total > 0"
         :total="total"
-        :hide-on-single-page =true
         :page.sync="queryParams.pageNum"
         :limit.sync="queryParams.pageSize"
         @current-change="handleSizeChange"
-        @pagination="getList"/>
+        @pagination="getList"
+      />
     </div>
-
   </div>
 </template>
 
@@ -45,108 +50,126 @@
 import { listNews } from "@/api/news";
 
 export default {
-  name: 'CompanyPage',
+  name: "CompanyPage",
   components: {
     // CommonBanner,
   },
-  data () {
+  data() {
     return {
       loading: true,
-      imgLabel: '新闻中心',
-      total:0,
+      imgLabel: "新闻中心",
+      total: 0,
       queryParams: {
         pageNum: 1,
         pageSize: 6,
         title: null,
         createdTime: null,
       },
-      news:[],
-      imgPath: '',
-      ionLocalPageName: '首页',
-      nowPageName: '',
-      activeComponentName: 'News',
-      dataSource: []
-    }
+      news: [],
+      imgPath: "",
+      ionLocalPageName: "首页",
+      nowPageName: "",
+      activeComponentName: "News",
+      dataSource: [],
+    };
   },
-  mounted (){
+  mounted() {
     this.getList();
   },
   filters: {
     //超过20位显示...
-    ellipsis: function(value) {
+    ellipsis: function (value) {
       if (!value) return "";
-      if (value.length > 18) {
-        return value.slice(0, 18) + "...";
-      }
+      // if (value.length > 18) {
+      //   return value.slice(0, 18) + "...";
+      // }
       return value;
-    }
+    },
   },
   methods: {
     getList() {
       this.loading = true;
-      listNews(this.queryParams).then(response => {
-        this.news = response.data.rows;
-        this.total = response.data.total;
+      listNews(this.queryParams).then((response = {}) => {
+        console.log("response", response);
+        const { data = {} } = response;
+        const { rows = [], total = 0 } = data;
+        this.news = rows;
+        this.total = total;
         this.loading = false;
       });
     },
-    handleSizeChange(val) { // 修改每页所存数据量的值所触发的函数
-      this.queryParams.pageSize = val;   // 修改页的大小
-      this.getList();       // 按新的pageNo和pageSize进行查询
+    handleSizeChange(val) {
+      console.log("val", val);
+      // 修改每页所存数据量的值所触发的函数
+      this.queryParams.pageSize = val; // 修改页的大小
+      this.getList(); // 按新的pageNo和pageSize进行查询
     },
-    handleSideClick (name) {
-      this.activeComponentName = name
-      if (name === 'NewsPage') {
-        this.nowPageName = '公司新闻'
-        this.dataSource = []
-      } else if (name === 'SituationPage') {
-        this.nowPageName = '行业动态'
-        this.dataSource = []
+    handleSideClick(name) {
+      this.activeComponentName = name;
+      if (name === "NewsPage") {
+        this.nowPageName = "公司新闻";
+        this.dataSource = [];
+      } else if (name === "SituationPage") {
+        this.nowPageName = "行业动态";
+        this.dataSource = [];
       } else {
-        this.dataSource = []
+        this.dataSource = [];
       }
     },
-    goDetail (row){
-      this.$router.push({path:"/website/Detail",query:{navType: '新闻中心',item: row}})
-    }
-  }
-
-}
+    goDetail(row) {
+      this.$router.push({
+        path: "/website/Detail",
+        query: { navType: "新闻中心", item: row },
+      });
+    },
+  },
+};
 </script>
-<style>
-.coordinate{
-  margin-top: 10px;
-  line-height: 30px;
-  display: flex;
-  border-bottom: 1px dashed rgba(187, 187, 187, 1);
-  margin-bottom: 20px;
-}
-.coordinate-left{
-  justify-content: flex-start;
-}
-.coordinate-left img{
-  width: 32px;
-  height: 32px;
-}
-.coordinate-right{
-  margin-left: 7px;
-  color: rgba(16, 16, 16, 1);
-  font-size: 18px;
-  padding-top: 5px;
-  font-family: SourceHanSansSC-regular;
-  justify-content: flex-start;
-}
-.padding-10 {
-  padding: 10px 0 40px 0;
-}
-.coordinates {
+<style scoped>
+.coordinates-new {
   text-align: center;
   font-size: 32px;
   font-family: AppleSystemUIFont;
   color: #262729;
-  line-height: 23px;
-  margin-top: 80px;
+  padding-top: 80px;
   margin-bottom: 40px;
 }
 
+.forthDiv-card {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #888888 !important;
+}
+
+.card-img {
+  width: 100%;
+}
+.card-img img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card-title {
+  padding: 10px 15px;
+  font-size: 18px;
+  font-family: AppleSystemUIFont;
+  color: #262729;
+}
+
+.card-content {
+  padding: 0 15px;
+  color: lightgray;
+  height: 44px;
+  line-height: 22px;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.card-bottom {
+  padding: 10px 15px 15px 15px;
+}
 </style>
