@@ -138,7 +138,6 @@ export default {
       }
     },
     handleSelect(val) {
-      debugger;
       this.activeIndex = val;
       this.name = "0";
       const path = this.menus[val].path;
