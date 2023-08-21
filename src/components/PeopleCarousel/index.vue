@@ -3,18 +3,22 @@
     <el-carousel indicator-position="outside" height="555px" arrow="never">
       <el-carousel-item v-for="(item, index) in formatData" :key="index">
         <div class="img-container">
-          <div class="people-card-item" v-for="(img, imgIndex) in item" :key="imgIndex">
-            <div class="people-card-image-wrap">
-              <el-image :src="img.summaryUrl" class="people-card-image" @click="handleImgClick(img)" />
-            </div>
-            <div class="people-name">{{ img.name }}</div>
-            <!--<div class="people-desc" v-html="img.content"></div>-->
-            <div class="people-desc">
-              这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字
-            </div>
-            <div class="people-job">这是职业？</div>
-            <div class="people-mobile">18909876543</div>
-          </div>
+          <el-row :gutter="10">
+            <el-col :span="8" v-for="(img, imgIndex) in item" :key="imgIndex">
+              <div class="people-card-item">
+                <div class="people-card-image-wrap">
+                  <el-image :src="img.summaryUrl" class="people-card-image" @click="handleImgClick(img)" />
+                </div>
+                <div class="people-name">{{ img.name }}</div>
+                <!--<div class="people-desc" v-html="img.content"></div>-->
+                <div class="people-desc">
+                  这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字
+                </div>
+                <div class="people-job">这是职业？</div>
+                <div class="people-mobile">18909876543</div>
+              </div>
+            </el-col>
+          </el-row>
         </div>
       </el-carousel-item>
     </el-carousel>
@@ -98,7 +102,6 @@
   }
   .people-card-item {
     margin: 0 12.5px;
-    width: 390px;
     height: 495px;
     padding: 34px 34px 20px;
     background: #FFFFFF;
