@@ -175,8 +175,9 @@ $header-text-color: #005393;
 }
 
 .menu-item {
-  font-family: "Microsoft YaHei";
   font-size: 16px;
+  font-family: AppleSystemUIFont;
+  font-weight: bold;
 }
 
 .menu {
@@ -239,10 +240,11 @@ $header-text-color: #005393;
   height: 66px;
   left: 18%;
   align-items: center;
-  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0px;
-  line-height: 21.6px;
+  line-height: 66px;
+  font-size: 18px;
+  font-family: AppleSystemUIFont;
   color: rgba(0, 0, 0, 1);
   img {
     width: 21px;
