@@ -4,7 +4,7 @@
       <el-row style="position: relative">
         <!-- <div class="title-shadow"></div> -->
         <!-- 全过程咨询 -->
-        <el-row class="consultation-container consultation-containers">
+        <el-row class="consultation-container consultation-containers" :gutter="30">
           <div class="whole_process_consultation">全过程咨询</div>
           <el-col
             :span="8"
@@ -13,7 +13,7 @@
             style="margin-bottom: 19px"
           >
             <div
-              class="con-box-heads"
+              class="ncon-box-heads"
               v-on:click="
                 goConsultationSecond(
                   item.name,
@@ -757,8 +757,8 @@ export default {
 .consultation-containers {
   padding: 0 12%;
 }
-.con-box-heads {
-  width: 340px;
+.ncon-box-heads {
+  /* width: 340px; */
   height: 150px;
   cursor: pointer;
   border-radius: 10px;
