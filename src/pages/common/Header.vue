@@ -30,12 +30,8 @@
           >登录</span
         >
         <span
-          style="
-            cursor: pointer;
-            height: 31px;
-            line-height: 31px;
-            color: rgba(0, 0, 0, 1);
-          "
+          style="cursor: pointer;"
+          class="login-zhuce"
           >注册</span
         >
       </div>
@@ -169,8 +165,8 @@ $header-text-color: #005393;
 }
 .header-container {
   @extend .layout-container;
-  min-width: 800px;
-  margin-left: 300px;
+  min-width: 611px;
+  margin-left: 33%;
 }
 
 .el-menu-item:hover {
@@ -191,7 +187,7 @@ $header-text-color: #005393;
 
 .login-status {
   position: absolute;
-  right: 82px;
+  right: 18%;
   top: 18px;
   font-size: 16px;
   font-family: "AlibabaPuHui-regular";
@@ -209,6 +205,11 @@ $header-text-color: #005393;
     background: rgba(5, 193, 211, 1);
     font-size: 15px;
     color: rgba(255, 255, 255, 1);
+  }
+  .login-zhuce {
+    height: 31px;
+    line-height: 31px;
+    color: rgba(0, 0, 0, 1);
   }
 
   & span:hover {
@@ -236,7 +237,7 @@ $header-text-color: #005393;
   position: absolute;
   display: flex;
   height: 66px;
-  left: 150px;
+  left: 18%;
   align-items: center;
   font-size: 16px;
   font-weight: 400;
@@ -250,6 +251,7 @@ $header-text-color: #005393;
   }
 }
 .fixed {
+  width: 32%;
   position: relative;
   height: 66px !important;
   text-align: center;
