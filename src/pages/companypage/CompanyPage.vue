@@ -107,7 +107,7 @@ export default {
 </script>
 <style scoped>
 .company-containers {
-  padding: 0 12%;
+  padding: 0 18%;
 }
 .coordinates {
   margin-top: 80px;

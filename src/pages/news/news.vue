@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="padding: 0 12%">
+    <div style="padding: 0 18%">
       <div class="coordinates-new">
         <div class="coordinate-right">{{ $route.query.navType }}</div>
       </div>

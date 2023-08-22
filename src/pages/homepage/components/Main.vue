@@ -755,7 +755,7 @@ export default {
   background-color: #FFF;
 }
 .consultation-containers {
-  padding: 0 12%;
+  padding: 0 18%;
 }
 .ncon-box-heads {
   /* width: 340px; */

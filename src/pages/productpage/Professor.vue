@@ -129,7 +129,7 @@ export default {
 }
 
 .consultation-containers {
-  padding: 0 12%;
+  padding: 0 18%;
 }
 .con-box-heads {
   width: 340px;

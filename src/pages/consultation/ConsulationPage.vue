@@ -233,7 +233,7 @@ export default {
   border-top-right-radius: 10px;
 }
 .consultation-containers {
-  padding: 0 12%;
+  padding: 0 18%;
 }
 
 .coordinates {

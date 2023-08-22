@@ -98,7 +98,7 @@
     }
   }
   .people-card {
-    padding: 0 12%;
+    padding: 0 18%;
   }
   .people-card-item {
     margin: 0 12.5px;
