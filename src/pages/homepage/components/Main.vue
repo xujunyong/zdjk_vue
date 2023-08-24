@@ -10,7 +10,7 @@
             :span="8"
             v-for="(item, index) in list"
             :key="index"
-            style="margin-bottom: 19px"
+            style="margin-bottom: 19px;padding-right: 0;"
           >
             <div
               class="ncon-box-heads"
@@ -35,7 +35,7 @@
         </el-row>
         <!-- 中地全过程咨询论坛 -->
         <div class="consultation-containers">
-          <el-row class="secondDivs">
+          <el-row class="secondDivs" style="margin-right: 15px;">
             <div class="whole_process_consultation">中地全过程咨询论坛</div>
             <div class="secondDivsimg" @click="goForumHome"></div>
             <div class="forum">
@@ -755,6 +755,7 @@ export default {
   background-color: #FFF;
 }
 .consultation-containers {
+  width: 100%;
   padding: 0 18%;
 }
 .ncon-box-heads {
