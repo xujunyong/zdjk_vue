@@ -209,7 +209,8 @@ export default {
   display: flex;
 }
 .login-left {
-  width: 700px;
+  width: 50%;
+  height: 1015px;
   background-size: cover;
   background-image: url('../../assets/images/login.png');
 }
@@ -225,12 +226,12 @@ export default {
 }
 .login-form {
   margin: 0 auto;
-  margin-top: 180px;
+  margin-top: 309px;
   width: 360px;
 }
 
 .logo .title {
-  font-size: 18px;
+  font-size: 30px;
   color: rgba(5, 193, 211, 1);
 }
 

@@ -4,7 +4,7 @@
       <div class="header-top">
         <img src="../../assets/images/logo4.png" alt="" />中地基勘·勇攀高峰
       </div>
-      <el-header class="header-container fixed">
+      <el-header class="header-container" style="height: 66px !important;">
         <el-menu
           @select="handleSelect"
           :default-active="activeIndex"
@@ -36,7 +36,7 @@
         >
       </div>
       <main-banner
-        style="position: relative; z-index: 0; background-color: #f9f9f9"
+        style="margin-top: 66px; position: relative; z-index: 0; background-color: #f9f9f9"
       ></main-banner>
       <div class="home-bottom">
         <img src="../../assets/images/joinus.png" alt="" />Welcome to join us
@@ -165,8 +165,12 @@ $header-text-color: #005393;
 }
 .header-container {
   @extend .layout-container;
-  min-width: 611px;
-  margin-left: 33%;
+  position: fixed;
+  z-index: 998;
+  width: 100%;
+  // min-width: 611px;
+  padding-left: 33%;
+  background: #ffffff;
 }
 
 .el-menu-item:hover {
@@ -181,18 +185,19 @@ $header-text-color: #005393;
 }
 
 .menu {
+  width: 32%;
   text-align: center;
   display: flex;
   justify-content: space-between;
 }
 
 .login-status {
-  position: absolute;
+  position: fixed;
   right: 18%;
   top: 18px;
   font-size: 16px;
   font-family: "AlibabaPuHui-regular";
-  z-index: 100;
+  z-index: 999;
   color: $header-text-color;
   width: 140px;
   display: flex;
@@ -235,10 +240,12 @@ $header-text-color: #005393;
   font-size: 1.5rem;
 }
 .header-top {
-  position: absolute;
+  position: fixed;
   display: flex;
-  height: 66px;
+  height: 66px !important;
+  text-align: center;
   left: 18%;
+  z-index: 999;
   align-items: center;
   font-weight: 400;
   letter-spacing: 0px;
@@ -252,12 +259,12 @@ $header-text-color: #005393;
     margin-right: 5px;
   }
 }
-.fixed {
-  width: 32%;
-  position: relative;
-  height: 66px !important;
-  text-align: center;
-}
+// .fixed {
+//   width: 32%;
+//   position: relative;
+//   height: 66px !important;
+//   text-align: center;
+// }
 
 .menuLeft .el-menu-item:hover {
   background: rgba(255, 255, 255, 0.99) !important;

@@ -1,46 +1,46 @@
 <template>
   <el-container>
-    <el-footer class="el-footer">
+    <el-footer class="el-footer" style="height: 327px;">
       <div class="footer">
         <el-row class="sm_blow">
-          <el-col :span="4">
+          <el-col :span="6">
             <div class="blow_right" style="text-align: center;">
               <span class="blow-top">微信公众号.</span>
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="5">
             <div class="blow_right">
               <span class="blow-top">其他</span>
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="6">
             <div class="blow_right">
               <span class="blow-top">国家认证</span>
             </div>
           </el-col>
-          <el-col :span="12">
+          <el-col :span="7">
             <div class="blow_right">
               <span class="blow-top">公司信息</span>
             </div>
           </el-col>
         </el-row>
         <el-row class="sm_blow" style="margin-top: 20px;">
-          <el-col :span="4">
+          <el-col :span="6">
             <div class="blow_right" style="text-align: center;">
               <img :src="webSetData.qrCode" />
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="5">
             <div class="blow_left">
               <span class="blow-top">网站地图<br />隐私声明<br />联系我们</span>
             </div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="6">
             <div class="blow_left">
               <span class="blow-top">中国政府网<br />内蒙古自治区人民政府<br />内蒙古发改委<br />内蒙古能源局<br />内蒙古自然资源厅</span>
             </div>
           </el-col>
-          <el-col :span="12">
+          <el-col :span="7">
             <div class="blow_left">
               <span class="blow-top">主办单位：{{ webSetData.sponsor }}<br />
               联系方式：{{
@@ -89,15 +89,15 @@ export default {
 
 <style lang="scss" scoped>
 .el-footer {
-  min-height: 300px !important;
+  // min-height: 300px !important;
   background: rgba(29, 38, 58, 1);
   position: relative;
-  padding: 40px 0;
+  padding: 90px 0;
 }
 
 .footer {
-  width: 1280px;
-  margin: 0 auto;
+  width: 100%;
+  padding: 0 18%;
 
   .link-container {
     display: flex;
@@ -153,8 +153,8 @@ export default {
     
   }
   img {
-    width: 113px;
-    height: 113px;
+    width: 135px;
+    height: 135x;
     display: block;
     margin: 0 auto;
     margin-bottom: 14px;
