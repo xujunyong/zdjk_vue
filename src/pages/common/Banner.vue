@@ -1,5 +1,5 @@
 <template>
-  <div style="height:625px;">
+  <div>
     <el-carousel :height="widths * 0.48125 + 'px'">
       <el-carousel-item v-for="item in pics" :key="item.id">
         <el-image :src=item.url style="width: 100%; height: 100%"></el-image>

@@ -4,12 +4,12 @@
       <div class="coordinates">
         <div class="coordinate-right">{{ consultationLocalPageName }}</div>
       </div>
-      <el-row class="consultation-containers">
+      <el-row class="consultation-containers" :gutter="30">
         <el-col
           :span="8"
           v-for="(item, index) in list"
           :key="index"
-          style="margin-bottom: 24px"
+          style="margin-bottom: 24px; padding-right: 0;"
         >
           <div
             class="con-box-heads"
@@ -247,7 +247,7 @@ export default {
 }
 
 .con-box-heads {
-  width: 340px;
+  /* width: 340px; */
   height: 150px;
   cursor: pointer;
   border-radius: 10px;

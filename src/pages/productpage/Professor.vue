@@ -4,32 +4,12 @@
       <div class="coordinates">
         <div class="coordinate-right">{{ nowPageName }}</div>
       </div>
-      <!-- <el-row class="consultation-containers">
-        <div class="img-container">
-          <div
-            class="img"
-            v-for="(img, imgIndex) in experts"
-            :key="imgIndex"
-            style="margin-bottom: 20px"
-          >
-            <img
-              :src="img.summaryUrl"
-              class="experts-img"
-              @click="goProfessorDetail(img)"
-              alt="专家图片"
-            />
-            <div class="name">
-              <span>{{ img.name }}</span>
-            </div>
-          </div>
-        </div>
-      </el-row> -->
-      <el-row class="consultation-containers">
+      <el-row class="consultation-containers" :gutter="30">
         <el-col
           :span="8"
           v-for="(item, index) in experts"
           :key="index"
-          style="margin-bottom: 24px"
+          style="margin-bottom: 24px; padding-right: 0px;"
         >
           <div class="con-box-heads" v-on:click="goProfessorDetail(item)">
             <div class="con-box-image-boxs">
@@ -132,8 +112,8 @@ export default {
   padding: 0 18%;
 }
 .con-box-heads {
-  width: 340px;
-  height: 400px;
+  // width: 340px;
+  height: 420px;
   cursor: pointer;
   border-radius: 10px;
   background: rgba(29, 38, 58, 1);
@@ -147,6 +127,8 @@ export default {
 .el-images {
   width: 100% !important;
   height: 100% !important;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 .con-box-name {
   margin-left: 33px;
@@ -168,6 +150,6 @@ export default {
   font-size: 16px;
   font-family: AppleSystemUIFont;
   color: #ffffff;
-  margin: 8px 33px;
+  margin: 10px 33px;
 }
 </style>
