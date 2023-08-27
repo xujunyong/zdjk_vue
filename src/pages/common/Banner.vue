@@ -1,6 +1,6 @@
 <template>
   <div style="height:625px;">
-    <el-carousel height="625px">
+    <el-carousel :height="widths * 0.48125 + 'px'">
       <el-carousel-item v-for="item in pics" :key="item.id">
         <el-image :src=item.url style="width: 100%; height: 100%"></el-image>
         <!-- <div class="logo-box">
@@ -10,9 +10,6 @@
         </div> -->
       </el-carousel-item>
     </el-carousel>
-    <!-- <div class="home-bottom">
-      <img src="../../assets/images/joinus.png" alt="" />Welcome to join us
-    </div> -->
   </div>
 </template>
 
@@ -24,7 +21,8 @@
     props: {},
     data() {
       return {
-        pics: []
+        pics: [],
+        widths: document.documentElement.clientWidth
       }
     },
     computed: {

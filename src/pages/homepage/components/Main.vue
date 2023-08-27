@@ -70,7 +70,7 @@
           </el-row>
         </div>
         <!-- 专家列表 -->
-        <el-row class="thirdDiv expert-list">
+        <el-row class="thirdDiv expert-list" style="height: 640px;">
           <div class="div-mask">
             <div class="expert-list-title">专家列表</div>
             <people-carousel
@@ -413,7 +413,7 @@ export default {
 .div-mask {
   width: 100%;
   height:100%;
-  padding: 40px 0;
+  padding: 0 18%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -422,8 +422,9 @@ export default {
 }
 .expert-list-title {
   width:100%;
-  height:120px;
-  line-height: 120px;
+  padding-top: 80px;
+  padding-bottom: 40px;
+  line-height: 47px;
   font-size: 32px;
   font-weight: 400;
   letter-spacing: -1px;

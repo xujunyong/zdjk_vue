@@ -1,19 +1,19 @@
 <template>
-  <div class="people-card">
-    <el-carousel indicator-position="outside" height="555px" arrow="never">
-      <el-carousel-item v-for="(item, index) in formatData" :key="index">
+  <div class="people-card" style="margin-left: -9px; margin-right: 12px;">
+    <el-carousel indicator-position="outside" :interval="50000" height="420px" arrow="never">
+      <el-carousel-item v-for="(item, index) in formatData" :key="index" style="height: 100% !important;">
         <div class="img-container">
-          <el-row :gutter="10">
+          <el-row :gutter="10" style="width: 100%;">
             <el-col :span="8" v-for="(img, imgIndex) in item" :key="imgIndex">
-              <div class="people-card-item">
+              <div class="people-card-item" @click="handleImgClick(img)">
                 <div class="people-card-image-wrap">
-                  <el-image :src="img.summaryUrl" class="people-card-image" @click="handleImgClick(img)" />
+                  <el-image :src="img.summaryUrl" class="people-card-image" />
                 </div>
                 <div class="people-name">{{ img.name }}</div>
-                <!--<div class="people-desc" v-html="img.content"></div>-->
-                <div class="people-desc">
+                <div class="people-desc" v-html="img.content"></div>
+                <!-- <div class="people-desc">
                   这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字
-                </div>
+                </div> -->
                 <div class="people-job">这是职业？</div>
                 <div class="people-mobile">18909876543</div>
               </div>
@@ -64,7 +64,8 @@
   .img-container {
     display: flex;
     cursor: pointer;
-    padding: 0 12.5px;
+    height: 495px;
+    // padding: 0 12.5px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -97,10 +98,17 @@
       }
     }
   }
-  .people-card {
-    padding: 0 18%;
+  .carousel {
+    height: 555px !important;
   }
+  .el-carousel__container {
+    height: 100% !important;
+  }
+  // .people-card {
+  //   padding: 0 18%;
+  // }
   .people-card-item {
+    width: 100%;
     margin: 0 12.5px;
     height: 495px;
     padding: 34px 34px 20px;
@@ -117,6 +125,8 @@
   .people-card-image {
     width: 100%;
     height: 100%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
   }
   .people-name {
     margin: 18px 0;
@@ -128,7 +138,7 @@
     color: #262729;
   }
   .people-desc {
-    height: 116px;
+    height: 120px;
     font-size: 16px;
     font-family: AppleSystemUIFont;
     color: #262729;
@@ -156,7 +166,6 @@
     color: #1D263A;
     line-height: 22px;
   }
-
   .people-card {
     ::v-deep .el-carousel__item {
       background: none;
@@ -171,4 +180,12 @@
       }
     }
   }
+</style>
+<style scoped>
+.people-card >>> .el-carousel__indicator.is-active button {
+  background-color: rgba(0, 186, 173, 1) !important;
+}
+/* .people-card >>> .el-carousel__indicator.is-active button {
+  width: 70px !important;
+} */
 </style>
