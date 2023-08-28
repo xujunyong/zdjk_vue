@@ -31,6 +31,7 @@
       </el-row>
 
       <el-pagination
+        class="pagination"
         style="text-align: center; margin: 20px"
         background
         layout="prev, pager, next"
@@ -171,5 +172,8 @@ export default {
 
 .card-bottom {
   padding: 10px 15px 15px 15px;
+}
+.pagination >>> .active {
+  background-color: rgba(5, 193, 211, 1) !important;
 }
 </style>
