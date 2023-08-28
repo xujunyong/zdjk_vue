@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-footer class="el-footer" style="height: 327px;">
+    <el-footer class="el-footer">
       <div class="footer">
         <el-row class="sm_blow">
           <el-col :span="6">
@@ -89,8 +89,8 @@ export default {
 
 <style lang="scss" scoped>
 .el-footer {
-  // min-height: 300px !important;
   background: rgba(29, 38, 58, 1);
+  height: 380px !important;
   position: relative;
   padding: 90px 0;
 }

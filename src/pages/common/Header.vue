@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-container id="header">
-      <div class="header-top">
+      <div class="header-top" style="height: 66px; line-height: 66px;">
         <img src="../../assets/images/logo4.png" alt="" />中地基勘·勇攀高峰
       </div>
       <el-header class="header-container" style="height: 66px !important;">
@@ -14,9 +14,11 @@
           background-color="rgba(255,255,255,0)"
           font-size="22px"
           class="menu"
+          style="height: 66px; line-height: 66px;"
         >
           <el-menu-item
             class="menu-item"
+            style="height: 66px; line-height: 66px;"
             v-for="(menu, index) in menus"
             :key="menu.id"
             :index="index.toString()"
@@ -25,7 +27,7 @@
           </el-menu-item>
         </el-menu>
       </el-header>
-      <div v-if="loginStatus" class="login-status">
+      <div v-if="loginStatus" class="login-status" style="top: 20px;">
         <span style="cursor: pointer" class="login-span" @click="loginClick"
           >登录</span
         >
@@ -242,14 +244,12 @@ $header-text-color: #005393;
 .header-top {
   position: fixed;
   display: flex;
-  height: 66px !important;
   text-align: center;
   left: 18%;
   z-index: 999;
   align-items: center;
   font-weight: 400;
   letter-spacing: 0px;
-  line-height: 66px;
   font-size: 18px;
   font-family: AppleSystemUIFont;
   color: rgba(0, 0, 0, 1);
