@@ -27,7 +27,7 @@
           </el-menu-item>
         </el-menu>
       </el-header>
-      <div v-if="loginStatus" class="login-status" style="top: 20px;">
+      <div v-if="loginStatus" class="login-status" style="height: 66px;line-height: 66px;align-items: center;">
         <span style="cursor: pointer" class="login-span" @click="loginClick"
           >登录</span
         >
@@ -196,7 +196,7 @@ $header-text-color: #005393;
 .login-status {
   position: fixed;
   right: 18%;
-  top: 18px;
+  // top: 18px;
   font-size: 16px;
   font-family: "AlibabaPuHui-regular";
   z-index: 999;
