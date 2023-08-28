@@ -1,11 +1,11 @@
 <template>
   <div class="people-card" style="margin-left: -9px; margin-right: 12px;">
-    <el-carousel indicator-position="outside" :interval="50000" height="420px" arrow="never">
+    <el-carousel indicator-position="outside" height="420px" arrow="never">
       <el-carousel-item v-for="(item, index) in formatData" :key="index" style="height: 100% !important;">
         <div class="img-container">
           <el-row :gutter="10" style="width: 100%;">
             <el-col :span="8" v-for="(img, imgIndex) in item" :key="imgIndex">
-              <div class="people-card-item" @click="handleImgClick(img)">
+              <div class="people-card-item" style="height: 380px;" @click="handleImgClick(img)">
                 <div class="people-card-image-wrap">
                   <el-image :src="img.summaryUrl" class="people-card-image" />
                 </div>
@@ -98,19 +98,15 @@
       }
     }
   }
-  .carousel {
-    height: 555px !important;
-  }
+  // .carousel {
+  //   height: 555px !important;
+  // }
   .el-carousel__container {
     height: 100% !important;
   }
-  // .people-card {
-  //   padding: 0 18%;
-  // }
   .people-card-item {
     width: 100%;
     margin: 0 12.5px;
-    height: 495px;
     padding: 34px 34px 20px;
     background: #FFFFFF;
     border-radius: 10px;

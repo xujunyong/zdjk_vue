@@ -72,7 +72,7 @@
         <!-- 专家列表 -->
         <el-row class="thirdDiv expert-list" style="height: 640px;">
           <div class="div-mask">
-            <div class="expert-list-title">专家列表</div>
+            <div class="expert-list-title" style="  padding-top: 80px; padding-bottom: 40px; line-height: 47px;">专家列表</div>
             <people-carousel
               ref="PeopleCarousel"
               :data="experts"
@@ -422,9 +422,6 @@ export default {
 }
 .expert-list-title {
   width:100%;
-  padding-top: 80px;
-  padding-bottom: 40px;
-  line-height: 47px;
   font-size: 32px;
   font-weight: 400;
   letter-spacing: -1px;
