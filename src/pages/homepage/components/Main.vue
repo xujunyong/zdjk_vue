@@ -70,16 +70,17 @@
           </el-row>
         </div>
         <!-- 专家列表 -->
-        <el-row class="thirdDiv expert-list" style="height: 640px;">
+        <!-- style="height: 800px;" -->
+        <el-row class="thirdDiv expert-list">
           <div class="div-mask">
-            <div class="expert-list-title" style="  padding-top: 80px; padding-bottom: 40px; line-height: 47px;">专家列表</div>
+            <!-- style="padding-top: 80px; padding-bottom: 40px; line-height: 47px;" -->
+            <div class="expert-list-title">专家列表</div>
             <people-carousel
               ref="PeopleCarousel"
               :data="experts"
               @imgClick="goProfessorDetail"
             />
           </div>
-
         </el-row>
         <!-- 新闻中心 -->
         <div class="forthDivContainer">
@@ -421,6 +422,9 @@ export default {
   background-color: rgba(29, 38, 58, 0.8);
 }
 .expert-list-title {
+  padding-top: 80px;
+  padding-bottom: 40px;
+  line-height: 47px;
   width:100%;
   font-size: 32px;
   font-weight: 400;
