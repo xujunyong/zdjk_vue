@@ -397,10 +397,8 @@ export default {
 .secondDiv,
 .forthDiv,
 .fifthDiv {
-  margin: 0 auto;
-  width: 1280px;
   overflow: hidden;
-  padding: 60px 0 0;
+  padding: 60px 18%;
 }
 .thirdDiv {
   width: 100%;

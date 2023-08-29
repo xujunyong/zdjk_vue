@@ -1,74 +1,68 @@
 <template>
-  <div style="height: 100%;">
+  <div class="forum-detail-wrap">
     <div class="forumDetailMain">
 
       <div class="forumDetailContent">
-        <div class="forumDetailHeader">立项手续</div>
-        <div class="forumDetailBody">
-          <div class="forumDetailTitle">{{ detail.title }}</div>
-          <div v-html="content" ></div>
+        <div class="detail-content-head">
+          <div class="detail-head-image"><img class="detail-head-image" src="@/assets/images/logo-1.png"/></div>
+          <div class="detail-head-content">
+            <div class="detail-head-name">
+              <span>{{ detail.author }}</span>
+              <img class="detail-item-icon" src="../../assets/images/rebang.png" alt="">
+            </div>
+            <div class="detail-head-time"><span>{{detail.createdTime}}</span></div>
+          </div>
+          <div class="detail-head-right">
+            <img class="detail-head-right-img" src="@/assets/images/viewing.png"/>
+            <div class="detail-head-right-text">{{detail.lookedNum}}</div>
+            <img class="detail-head-right-img" src="@/assets/images/comment.png"/>
+            <div class="detail-head-right-text">{{detail.commentNum}}</div>
+          </div>
+        </div>
+        <div class="detail-content-title">
+          {{detail.title}}
+          <img class="detail-item-icon" src="../../assets/images/rebang.png" alt="">
+        </div>
+        <div class="detail-content-text" v-html="content"></div>
+        <div class="detail-time-wrap">
+          2023-03-12  10:23
+          <span class="open-answer" @click="getCommentsList">展开回复</span>
+        </div>
+        <div class="detail-answer-wrap">
+          <div class="detail-answer-item" v-for="item in comments" :key="item.id">
+            <img class="answer-item-image" src="@/assets/images/logo-1.png" alt="">
+            <div class="answer-item-right">
+              <div class="answer-item-right-content">
+                <div class="answer-item-name">
+                  <span class="name-color">{{ item.userName }}</span>
+                  回复
+                  <span class="name-color">{{ item.userName }}：</span>
+                </div>
+                <div class="answer-item-content">{{item.content}}</div>
+              </div>
+              <div class="answer-item-time">
+                {{item.createdTime}}
+                <span class="answer-item-answer">回复</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="detail-my-answer">
+          <el-input
+            v-model="form.content"
+            placeholder="发表留言"
+            type="textarea"
+            class="forum-textarea"
+          />
+          <div class="my-answer-btn-wrap">
+            <el-button round type="primary" size="small" @click="addCommentForm">发表</el-button>
+          </div>
         </div>
       </div>
 
       <div class="forumDetailExperts firstDiv">
         <div class="forumDetailHeader">专家列表</div>
-<!--        <div style="height: auto;display: flex;justify-content:space-between; flex-wrap:wrap;margin: 20px ">-->
-<!--          <div v-for="(o, index) in experts" :key="index" style="position: relative">-->
-<!--            <div v-if="index ===0" style="position:absolute;margin-top: 55%;">-->
-<!--              <img v-on:click ="professorPage('left')" src="../../assets/images/left.png" style="width: 40px;background-color: #cdcdcd">-->
-<!--            </div>-->
-<!--            <div v-if="index ===3" style=" height:40px;width:40px;position:absolute;z-index:3;margin-top: 55%;margin-left: 82%">-->
-<!--              <img v-on:click ="professorPage('right')" src="../../assets/images/right.png" style="width: 40px;background-color: #cdcdcd">-->
-<!--            </div>-->
-<!--            <img :src="o.summaryUrl" class="forum-experts-img" v-on:click ="goProfessorDetail(o)">-->
-<!--            <div class="forum-experts-name" v-on:click ="goProfessorDetail(o)">{{ o.name }}</div>-->
-<!--          </div>-->
-<!--        </div>-->
         <people-carousel :data="experts" />
-      </div>
-
-      <div class="forumDetailExperts firstDiv">
-        <div class="forumDetailHeader">咨询列表</div>
-        <el-form ref="form" :model="form" :rules="rules" style="margin: 20px;width: 95%;">
-          <el-form-item prop="content">
-            <el-input
-              v-model="form.content"
-              placeholder="发表留言"
-              type="textarea"
-              class="forum-textarea"
-            />
-          </el-form-item>
-          <el-form-item>
-            <el-button style="float: right; width: 110px; height: 40px; background-color: #005393;" round type="primary" @click="addCommentForm">发表</el-button>
-          </el-form-item>
-        </el-form>
-        <div class="forum-comment-list">
-          <div class="content">
-            <el-row v-for="item in comments" :key="item.id" :gutter="10">
-              <el-col :span="24">
-                <div class="item-header">
-                  <div class="item-header-left">
-                    <div class="item-header-left-img"><img src="@/assets/images/logo-1.png"/></div>
-                    <div class="item-header-left-content">
-                      <div class="item-header-left-name"><span>{{ item.userName }}</span></div>
-                      <div class="item-header-left-time"><span>{{item.createdTime}}</span></div>
-                    </div>
-                  </div>
-                </div>
-                <div v-on:click="getDetail(item)" class="item-content">{{item.content}}</div>
-                <div class="item-bottom"></div>
-              </el-col>
-            </el-row>
-            <el-pagination
-              layout="prev, pager, next"
-              :total="commentTotal"
-              :page.sync="commentQueryParams.pageNum"
-              :limit.sync="commentQueryParams.pageSize"
-              :hide-on-single-page =true
-              @pagination="getCommentsList" />
-          </div>
-
-        </div>
       </div>
 
     </div>
@@ -198,38 +192,23 @@ export default {
 }
 </script>
 <style lang="scss">
-.forumDetailMain{
-  background: rgba(247, 248, 249, 1);
-  border-top:1px solid rgba(247, 248, 249, 1);;
-}
 .forumDetailContent{
-  margin: 0 auto;
-  margin-top: 20px;
-  background-color: white;
-  width: 1280px;
-  padding: 8px 30px;
+  width: 100%;
+  border-radius: 12px;
+  background: rgba(247, 248, 249, 1);
+  padding: 24px;
+  box-sizing: border-box;
 }
 
 .forumDetailHeader{
-  height: 50px;
-  width: 95%;
-  margin: 20px;
-  color: rgba(0, 83, 147, 1);
-  font-size: 24px;
+  margin-bottom: 15px;
+  height: 27px;
+  font-size:18px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  line-height: 27px;
+  color: rgba(0, 0, 0, 1);
   text-align: left;
-  border-bottom: 1px dashed rgba(187, 187, 187, 1);
-  display: flex;
-  align-items: center;
-  padding-bottom: 8px;
-
-  &:before {
-    content: "";
-    display: inline-block;
-    width: 4px;
-    height: 24px;
-    background-color: #005393;
-    margin-right: 10px;
-  }
 }
 .forumDetailBody{
   margin-top: 20px;
@@ -237,15 +216,18 @@ export default {
 }
 
 .forumDetailExperts{
-  margin-top: 20px;
-  padding: 10px 10px;
-  background-color: white;
-  padding-bottom: 40px;
+  margin-top: 12px;
+  width: 100%;
+  opacity: 1;
+  border-radius: 12px;
+  background: rgba(247, 248, 249, 1);
+  padding: 24px 30px 0;
+  margin-bottom: 40px;
+  box-sizing: border-box;
 }
 
 .forum-textarea textarea {
-  min-height: 120px !important;
-  background-color: #F7F8F9;
+  min-height: 104px !important;
 }
 
 .forumDetailExpertsHeader{
@@ -305,4 +287,152 @@ export default {
   position:absolute;
   z-index: 2;
 }
+  .forum-detail-wrap {
+    padding: 0 18%;
+    background-color: #FFF;
+  }
+.detail-content-head {
+  position: relative;
+  display: flex;
+}
+.detail-head-content {
+  margin-left: 18px;
+}
+.detail-head-name {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  font-size: 18px;
+  font-family: AppleSystemUIFont;
+  color: #000000;
+  line-height: 24px;
+}
+.detail-head-time {
+  margin-top: 3px;
+  height: 20px;
+  font-size: 14px;
+  font-family: AppleSystemUIFont;
+  color: #999999;
+  line-height: 20px;
+}
+.detail-head-image {
+  width: 48px;
+  height:48px;
+}
+.detail-head-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+}
+.detail-head-right-img {
+  width: 18px;
+  height: 16px;
+  margin-left: 22px;
+}
+.detail-head-right-text {
+  height: 20px;
+  font-size: 14px;
+  font-family: AppleSystemUIFont;
+  color: #000000;
+  line-height: 20px;
+  margin-left: 4px;
+}
+.detail-content-title {
+  margin: 26px 0 11px;
+  height: 22px;
+  font-size: 16px;
+  font-family: AppleSystemUIFont;
+  color: #000000;
+  line-height: 22px;
+  font-weight:bold;
+}
+.detail-content-text {
+  width: 100%;
+  font-size: 15px;
+  font-family: AppleSystemUIFont;
+  color: #666666;
+  line-height: 18px;
+}
+.detail-item-icon {
+  width:18px;
+  height:18px;
+  margin-left: 2px;
+}
+  .detail-time-wrap {
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: rgba(102, 102, 102, 1);
+    text-align: right;
+  }
+  .detail-time-wrap .open-answer {
+    cursor: pointer;
+    margin-left: 12px;
+    color: rgba(0, 94, 255, 1);
+  }
+  .detail-answer-wrap {
+    padding: 18px 28px 20px 23px;
+    margin: 20px 0 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 1);
+  }
+  .detail-answer-item {
+    display: flex;
+    margin-bottom: 18px;
+  }
+  .detail-answer-item:last-child {
+    margin-bottom: 0;
+  }
+  .answer-item-image {
+    width: 36px;
+    height: 36px;
+  }
+  .answer-item-right {
+    margin-left: 18px;
+    flex: 1;
+  }
+  .answer-item-right-content {
+    display: flex;
+  }
+  .answer-item-name {
+    height: 25px;
+    font-size: 18px;
+    font-family: AppleSystemUIFont;
+    color: rgba(17, 17, 26, 1);
+    line-height: 25px;
+  }
+  .answer-item-name .name-color {
+    color: #005EFF;
+  }
+  .answer-item-content {
+    text-align: left;
+    margin-left: 4px;
+    flex: 1;
+    font-size: 18px;
+    font-family: AppleSystemUIFont;
+    color: #101018;
+    line-height: 25px;
+  }
+  .answer-item-time {
+    margin-top: 5px;
+    text-align: right;
+  }
+  .answer-item-time .answer-item-answer {
+    color: rgba(0, 94, 255, 1)
+  }
+  .detail-my-answer {
+    width: 100%;
+    height: 154px;
+    opacity: 1;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 1);
+  }
+  .my-answer-btn-wrap {
+    text-align: right;
+    margin-top: 10px;
+  }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <main-header v-if="$route.meta.navShow" :currentPath="currentPath"/>
-    <forum-header v-else-if="$route.meta.isNotLogin" :currentPath="currentPath"/>
+    <forum-header v-if="$route.meta.isNotLogin" :currentPath="currentPath"/>
     <router-view/>
     <main-footer v-show="$route.meta.navShow"/>
   </div>

@@ -1,49 +1,23 @@
 <template>
-  <el-container class="forum-header-container" id="header">
-    <el-header style="width: 100%;height: 100%;">
-      <el-row class="container">
-        <el-col class="logo-box" v-on:click="iconClick">
-          <img v-on:click="iconClick" class="logo" src="@/assets/images/logo-1.png" alt="logo">
-          <strong>中地论坛</strong>
-        </el-col>
-        <el-col style="margin-right: 30px;">
-          <el-menu
-            @select="handleSelect"
-            :default-active="activeIndex"
-            mode="horizontal"
-            text-color="rgba(65, 65, 65, 1)"
-            font-size="20px"
-            class="menuLeft">
-            <el-menu-item v-for="(menu, index) in menus" :key="index" :index="index.toString()">
-              {{menu.label}}
-            </el-menu-item>
-          </el-menu>
-        </el-col>
-        <el-col>
-          <el-autocomplete
-            popper-class="my-autocomplete"
-            v-model="state"
-            placeholder="请输入内容">
-            <i
-              class="el-icon-search el-input__icon"
-              slot="suffix"
-              @click="handleIconClick">
-            </i>
-          </el-autocomplete>
-        </el-col>
-        <el-col>
-          <div v-if="loginStatus" class="login-status">
-            <span style="cursor:default" @click="loginClick">登录</span>
-            <span style="cursor:default">注册</span>
-          </div>
-          <div v-else class="login-status" >
-            <img v-on:click="iconClick" class="forum-right-logo" src="@/assets/images/logo-1.png" alt="logo">
-            <span>{{user.userName}}</span>
-          </div>
-        </el-col>
-      </el-row>
-    </el-header>
-  </el-container>
+  <div class="forum-header-container" id="header">
+    <div class="forum-title">中地论坛</div>
+    <div class="forum-list-wrap">
+      <div class="forum-list-item" v-for="(item, index) in menuList" :key="index">
+        <span class="menu-item-name">{{item.name}}</span>
+        <img class="menu-item-icon" v-if="item.icon" :src="item.icon" alt="">
+      </div>
+      <el-autocomplete
+        popper-class="my-autocomplete"
+        v-model="state"
+        placeholder="请输入内容">
+        <i
+          class="el-icon-search el-input__icon"
+          slot="suffix"
+          @click="handleIconClick">
+        </i>
+      </el-autocomplete>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -80,6 +54,21 @@ export default {
           'id': 'nav3',
           'label': '热榜',
           'path': '/website/consultation'
+        }
+      ],
+      menuList: [
+        {
+          name: '首页'
+        },
+        {
+          name: '关注'
+        },
+        {
+          name: '推荐'
+        },
+        {
+          name: '热榜',
+          icon:  require('../../assets/images/rebang.png')
         }
       ],
       opened: false
@@ -144,7 +133,7 @@ export default {
 
 <style lang="scss" scoped>
   .forum-header-container {
-    height: 100px;
+    padding: 0 19%;
     .container {
       width: 1280px;
       margin: 0 auto;
@@ -221,5 +210,39 @@ export default {
   .menuLeft.el-menu--horizontal>.el-menu-item{
     height:40px;
     line-height:40px
+  }
+  .forum-title {
+    margin: 80px 0 45px;
+    text-align: center;
+    height: 47px;
+    font-size: 32px;
+    font-family: AppleSystemUIFont;
+    color: #262729;
+    line-height: 46px;
+  }
+  .forum-list-wrap {
+    display: flex;
+    margin-bottom: 35px;
+  }
+  .forum-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 40px;
+  }
+  .menu-item-name {
+    height: 20px;
+    font-size: 16px;
+    font-family: AppleSystemUIFont;
+    color: #000;
+    line-height: 20px;
+  }
+  .menu-item-name.active {
+    color: #05C1D3;
+  }
+  .menu-item-icon {
+    width:18px;
+    height:18px;
+    margin-left: 2px;
   }
 </style>

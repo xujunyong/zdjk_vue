@@ -1,22 +1,6 @@
 <template>
   <div class="forum-container">
-    <div class="forum-title">中地论坛</div>
-    <div class="forum-list-wrap">
-      <div class="forum-list-item" v-for="(item, index) in menuList" :key="index">
-        <span class="menu-item-name">{{item.name}}</span>
-        <img class="menu-item-icon" v-if="item.icon" :src="item.icon" alt="">
-      </div>
-      <el-autocomplete
-        popper-class="my-autocomplete"
-        v-model="state"
-        placeholder="请输入内容">
-        <i
-          class="el-icon-search el-input__icon"
-          slot="suffix"
-          @click="handleIconClick">
-        </i>
-      </el-autocomplete>
-    </div>
+
     <div class="card-content-item" v-for="item in articles" :key="item.id">
       <div class="card-content-head">
         <div class="card-head-image"><img class="card-head-image" src="@/assets/images/logo-1.png"/></div>
@@ -64,21 +48,6 @@ export default {
         pageNum: 1,
         pageSize: 10
       },
-      menuList: [
-        {
-          name: '首页'
-        },
-        {
-          name: '关注'
-        },
-        {
-          name: '推荐'
-        },
-        {
-          name: '热榜',
-          icon:  require('../../assets/images/rebang.png')
-        }
-      ],
       state: '',
     }
   },
@@ -125,7 +94,7 @@ export default {
   }
 .forum-container{
   width: 100%;
-  padding: 0 360px;
+  padding: 0 18%;
   margin-bottom: 100px;
   box-sizing: border-box;
   background: #FFF;

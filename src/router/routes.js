@@ -102,7 +102,7 @@ const routes = [
     component: ForumDetail,
     meta: {
       title: '中地论坛详情页',
-      navShow: false,
+      navShow: true,
       isNotLogin: true
     }
   },
