@@ -37,6 +37,7 @@
         layout="prev, pager, next"
         v-show="total > 0"
         :total="total"
+        :page-size="queryParams.pageSize"
         :page.sync="queryParams.pageNum"
         :limit.sync="queryParams.pageSize"
         @current-change="handleSizeChange"
