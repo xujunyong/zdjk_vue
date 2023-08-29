@@ -28,7 +28,7 @@
           2023-03-12  10:23
           <span class="open-answer" @click="getCommentsList">展开回复</span>
         </div>
-        <div class="detail-answer-wrap">
+        <div class="detail-answer-wrap" v-if="comments.length">
           <div class="detail-answer-item" v-for="item in comments" :key="item.id">
             <img class="answer-item-image" src="@/assets/images/logo-1.png" alt="">
             <div class="answer-item-right">
@@ -376,7 +376,7 @@ export default {
   }
   .detail-answer-wrap {
     padding: 18px 28px 20px 23px;
-    margin: 20px 0 12px;
+    margin: 20px 0 0;
     border-radius: 8px;
     background: rgba(255, 255, 255, 1);
   }
@@ -425,6 +425,7 @@ export default {
     color: rgba(0, 94, 255, 1)
   }
   .detail-my-answer {
+    margin-top: 12px;
     width: 100%;
     height: 154px;
     opacity: 1;
