@@ -879,7 +879,7 @@ export default {
 }
 
 .news>>>.el-carousel__container {
-  height: 424px !important;
+  height: 394px !important;
 }
 .news>>>.el-carousel__indicator.is-active button {
   background-color: rgba(0, 186, 173, 1) !important;
