@@ -127,3 +127,9 @@
     background: rgba(0, 0, 0, 0.5);
   }
 </style>
+
+<style scoped>
+.people-card >>> .el-carousel__indicator.is-active button {
+  background-color: rgba(0, 186, 173, 1) !important;
+}
+</style>

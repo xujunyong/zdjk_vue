@@ -6,23 +6,15 @@
         <!-- 全过程咨询 -->
         <el-row class="consultation-container consultation-containers" :gutter="30">
           <div class="whole_process_consultation">全过程咨询</div>
-          <el-col
-            :span="8"
-            v-for="(item, index) in list"
-            :key="index"
-            style="margin-bottom: 19px;padding-right: 0;"
-          >
-            <div
-              class="ncon-box-heads"
-              v-on:click="
-                goConsultationSecond(
-                  item.name,
-                  item.dictType,
-                  item.contentName,
-                  item.activeIndex
-                )
-              "
-            >
+          <el-col :span="8" v-for="(item, index) in list" :key="index" style="margin-bottom: 19px;padding-right: 0;">
+            <div class="ncon-box-heads" v-on:click="
+              goConsultationSecond(
+                item.name,
+                item.dictType,
+                item.contentName,
+                item.activeIndex
+              )
+              ">
               <div class="con-box-image-boxs">
                 <el-image :src="item.icon" />
               </div>
@@ -39,18 +31,12 @@
             <div class="whole_process_consultation">中地全过程咨询论坛</div>
             <div class="secondDivsimg" @click="goForumHome"></div>
             <div class="forum">
-              <div
-                v-for="(item, index) in articles"
-                :key="index"
-                class="secondDivContents"
-                :class="{
-                  first: index == 0,
-                  last: index == articles.length - 1,
-                  cardinality: index % 2 == 0,
-                  evennumber: index % 2 == 1,
-                }"
-                v-on:click="goForumDetail(item)"
-              >
+              <div v-for="(item, index) in articles" :key="index" class="secondDivContents" :class="{
+                first: index == 0,
+                last: index == articles.length - 1,
+                cardinality: index % 2 == 0,
+                evennumber: index % 2 == 1,
+              }" v-on:click="goForumDetail(item)">
                 <div class="secondDivContents-content-title">
                   {{ item.title }}
                 </div>
@@ -75,25 +61,21 @@
           <div class="div-mask">
             <!-- style="padding-top: 80px; padding-bottom: 40px; line-height: 47px;" -->
             <div class="expert-list-title">专家列表</div>
-            <people-carousel
-              ref="PeopleCarousel"
-              :data="experts"
-              @imgClick="goProfessorDetail"
-            />
+            <people-carousel ref="PeopleCarousel" :data="experts" @imgClick="goProfessorDetail" />
           </div>
         </el-row>
         <!-- 新闻中心 -->
         <div class="forthDivContainer">
           <el-row class="forthDiv">
             <div class="news-center-title">新闻中心</div>
-            <el-carousel indicator-position="outside"  height="424px" arrow="never">
+            <el-carousel class="news" indicator-position="outside" arrow="never">
               <el-carousel-item v-for="(item, index) in news" :key="index">
                 <div class="news-content-wrap" @click="goProfessorDetail(item)">
                   <div class="news-content">
-                    <!--<div class="news-content-title">{{ item.title }}</div>-->
-                    <!--<div class="news-content-text">{{item.content}}</div>-->
-                    <div class="news-content-title">这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题</div>
-                    <div class="news-content-text">这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容</div>
+                    <div class="news-content-title">{{ item.title }}</div>
+                    <div class="news-content-text">{{ item.summary | ellipsis }}</div>
+                    <!-- <div class="news-content-title">这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题</div>
+                    <div class="news-content-text">这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容</div> -->
                   </div>
                   <img class="news-image" :src="item.summaryUrl" alt="">
                 </div>
@@ -104,12 +86,8 @@
 
         <el-row class="fifthDiv company-desc-wrap">
           <div class="company-desc-title">公司简介</div>
-          <div style="margin-top: 50px">
-            <profiles-carousel
-              ref="ProfilesCarousel"
-              :data="proFiles"
-              @imgClick="goProfessorDetail"
-            />
+          <div>
+            <profiles-carousel ref="ProfilesCarousel" :data="proFiles" @imgClick="goProfessorDetail" />
           </div>
         </el-row>
       </el-row>
@@ -285,9 +263,9 @@ export default {
     //超过20位显示...
     ellipsis: function (value) {
       if (!value) return "";
-      if (value.length > 18) {
-        return value.slice(0, 18) + "...";
-      }
+      // if (value.length > 18) {
+      //   return value.slice(0, 18) + "...";
+      // }
       return value;
     },
     assignment: function (value) {
@@ -336,7 +314,7 @@ export default {
     goForumDetail(item) {
       let param = {};
       param.articleId = item.articleId;
-      setLooked(param).then((response) => {});
+      setLooked(param).then((response) => { });
       this.$router.push({
         path: "/website/forumDetail",
         query: { navType: "新闻中心", item: item },
@@ -378,7 +356,7 @@ export default {
       this.loading = true;
       this.queryParams.pageSize = 4;
       listExpert().then((response) => {
-          console.log('response.data.rows', response.data.rows)
+        console.log('response.data.rows', response.data.rows)
         this.experts = response.data.rows;
         this.expertTotal = response.data.total;
       });
@@ -398,8 +376,9 @@ export default {
 .forthDiv,
 .fifthDiv {
   overflow: hidden;
-  padding: 60px 18%;
+  padding: 0 18%;
 }
+
 .thirdDiv {
   width: 100%;
   height: 800px;
@@ -409,9 +388,10 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .div-mask {
   width: 100%;
-  height:100%;
+  height: 100%;
   padding: 0 18%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -419,11 +399,12 @@ export default {
   /*background-color: rgba(0, 0, 0, 0.8);*/
   background-color: rgba(29, 38, 58, 0.8);
 }
+
 .expert-list-title {
   padding-top: 80px;
   padding-bottom: 40px;
   line-height: 47px;
-  width:100%;
+  width: 100%;
   font-size: 32px;
   font-weight: 400;
   letter-spacing: -1px;
@@ -431,27 +412,29 @@ export default {
   text-align: center;
   vertical-align: top;
 }
+
 .title-shadow {
   height: 90px;
-  background-image: linear-gradient(
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 1)
-  );
+  background-image: linear-gradient(rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 1));
   position: absolute;
   top: -90px;
   left: 0;
   right: 0;
   z-index: 5000;
 }
+
 .coordinate {
   width: 1260px;
   margin: 0 auto;
   margin-top: 20px !important;
   margin-bottom: 30px !important;
 }
+
 .coordinate-left {
   margin-top: 4px;
 }
+
 .secondDivsimg {
   position: absolute;
   right: 76px;
@@ -461,6 +444,7 @@ export default {
   background-size: cover;
   background-image: url("../../../assets/images/nmores.png");
 }
+
 .forum {
   display: flex;
   margin-bottom: 20px;
@@ -481,6 +465,7 @@ export default {
   overflow: hidden;
   align-items: center;
 }
+
 /* .secondDivContents:hover, .secondDivContents:hover .secondDivContents-title, .secondDivContents:hover .secondDivContents-content-title {
   color: #ffffff !important;
   background-color: #005393;
@@ -489,11 +474,13 @@ export default {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
+
 .last {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   box-shadow: 0px 54px 100px 0px rgba(10, 4, 60, 0.08);
 }
+
 .evennumber {
   background: #ffffff;
   font-family: AppleSystemUIFont;
@@ -503,6 +490,7 @@ export default {
 .secondDivContents:hover .secondDivContents-title {
   border-right: 0.5px dashed #ffffff;
 }
+
 .secondDivContents .secondDivContents-title {
   display: flex;
   justify-content: space-around;
@@ -527,6 +515,7 @@ export default {
   -o-text-overflow: ellipsis;
   overflow: hidden;
 }
+
 .secondDivContents-content-container {
   flex: 1;
   height: 56px;
@@ -537,6 +526,7 @@ export default {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
 }
+
 .border-btn {
   line-height: 20px;
   margin-bottom: 20px;
@@ -549,13 +539,16 @@ export default {
   font-weight: bold;
   color: rgba(0, 83, 147, 1);
 }
+
 .border-btn:hover {
   color: #ffffff;
   background-color: rgba(0, 83, 147, 1);
 }
+
 .experts {
   text-align: center;
 }
+
 .expert-img {
   margin: 5px 10px;
   width: 100%;
@@ -576,10 +569,12 @@ export default {
   line-height: 24px;
   font-size: 12px;
 }
+
 .experts_card {
   text-align: center;
   background-color: rgba(249, 249, 249, 1);
 }
+
 .experts-img {
   margin: 0 0;
   height: 325px;
@@ -590,6 +585,7 @@ export default {
   background-size: contain;
   z-index: 0;
 }
+
 .experts-name {
   height: 40px;
   margin-top: -60px;
@@ -603,6 +599,7 @@ export default {
   position: absolute;
   z-index: 2;
 }
+
 .new-img {
   margin: 0 0;
   height: 232px;
@@ -612,6 +609,7 @@ export default {
   background-origin: border-box;
   background-size: contain;
 }
+
 .newsLine {
   overflow: hidden;
   white-space: nowrap;
@@ -662,9 +660,11 @@ export default {
   0% {
     background: rgba(0, 83, 147, 1);
   }
+
   50% {
     background: rgba(0, 83, 147, 0.6);
   }
+
   100% {
     background: rgba(0, 83, 147, 1);
   }
@@ -675,6 +675,7 @@ export default {
   right: 20px;
   bottom: 20px;
 }
+
 .con-box-more img {
   width: 22px;
 }
@@ -713,23 +714,28 @@ export default {
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
 }
+
 .image {
   width: 272px;
   height: 189px;
 }
+
 .con-box-text-item {
   margin-left: 22px;
   border-bottom: 1px solid rgba(187, 187, 187, 1);
   line-height: 72px;
 }
+
 .con-box-text-item:hover {
   /*font-size: 26px;*/
   transform: scale(1.06);
   cursor: pointer;
 }
+
 .con-box-text-item:last-child {
   border-bottom: none;
 }
+
 .con-box-text-item-else {
   margin-left: 22px;
   margin-top: 15%;
@@ -751,13 +757,16 @@ export default {
 .el-carousel__item:nth-child(2n + 1) {
   background-color: #d3dce6;
 }
+
 .forthDivContainer .el-carousel__item {
   background-color: #FFF;
 }
+
 .consultation-containers {
   width: 100%;
   padding: 0 18%;
 }
+
 .ncon-box-heads {
   /* width: 340px; */
   height: 150px;
@@ -765,12 +774,14 @@ export default {
   border-radius: 10px;
   border: 1px solid rgba(29, 38, 58, 0.27);
 }
+
 .con-box-image-boxs {
   margin-left: 35px;
   margin-top: 36px;
   width: 30px;
   height: 30px;
 }
+
 .con-box-name {
   margin-left: 35px;
   margin-top: 9px;
@@ -779,6 +790,7 @@ export default {
   color: #262729;
   line-height: 28px;
 }
+
 .con-box-bottom {
   float: right;
   margin-right: 20px;
@@ -786,71 +798,89 @@ export default {
   font-family: AppleSystemUIFont;
   color: #05c1d3;
 }
-  .news-center-title {
-    margin: 20px 0 100px;
-    text-align: center;
-    height: 46px;
-    font-size: 32px;
-    font-family: AppleSystemUIFont;
-    color: #262729;
-    line-height: 46px;
-  }
-  .news-content-wrap {
-    background: #FFF;
-    width: 100%;
-    height: 364px;
-    display: flex;
-  }
-  .news-content {
-    flex: 1;
-    padding: 55px 177px 55px 0;
-  }
-  .news-image {
-    width: 600px;
-    height: 364px;
-    -webkit-border-radius:10px;
-    -moz-border-radius:10px;
-    border-radius:10px;
-  }
-  .news-content-title {
-    margin-bottom: 58px;
-    width: 100%;
-    height: 122px;
-    font-size: 42px;
-    font-family: AppleSystemUIFont;
-    color: #262729;
-    line-height: 61px;
-    -webkit-line-clamp: 2;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .news-content-text {
-    height: 74px;
-    font-size: 17px;
-    font-family: AppleSystemUIFont;
-    color: #262729;
-    line-height: 25px;
-    -webkit-line-clamp: 3;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .expert-list {
-    margin-top: 80px;
-  }
-  .company-desc-title {
-    margin: 20px 0 50px;
-    text-align: center;
-    height: 46px;
-    font-size: 32px;
-    font-family: AppleSystemUIFont;
-    color: #262729;
-    line-height: 46px;
-  }
-  .company-desc-wrap {
-    margin-bottom: 80px;
-  }
-</style>
+
+.news {
+  height: 424px;
+}
+.news-center-title {
+  margin: 80px 0 100px;
+  text-align: center;
+  height: 46px;
+  font-size: 32px;
+  font-family: AppleSystemUIFont;
+  color: #262729;
+  line-height: 46px;
+}
+
+.news-content-wrap {
+  background: #FFF;
+  width: 100%;
+  height: 364px;
+  display: flex;
+}
+
+.news-content {
+  flex: 1;
+  padding: 55px 177px 55px 0;
+}
+
+.news-image {
+  width: 600px;
+  height: 364px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.news-content-title {
+  margin-bottom: 58px;
+  width: 100%;
+  height: 122px;
+  font-size: 42px;
+  font-family: AppleSystemUIFont;
+  color: #262729;
+  line-height: 61px;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.news-content-text {
+  height: 74px;
+  font-size: 17px;
+  font-family: AppleSystemUIFont;
+  color: #262729;
+  line-height: 25px;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.expert-list {
+  margin-top: 80px;
+}
+
+.company-desc-title {
+  margin: 80px 0 53px;
+  text-align: center;
+  height: 46px;
+  font-size: 32px;
+  font-family: AppleSystemUIFont;
+  color: #262729;
+  line-height: 46px;
+}
+
+.company-desc-wrap {
+  margin-bottom: 80px;
+}
+
+.news>>>.el-carousel__container {
+  height: 424px !important;
+}
+.news>>>.el-carousel__indicator.is-active button {
+  background-color: rgba(0, 186, 173, 1) !important;
+}</style>
