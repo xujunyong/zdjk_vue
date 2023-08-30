@@ -1,6 +1,6 @@
 <template>
   <div class="people-card">
-    <el-carousel indicator-position="outside" type="card" height="314px" arrow="never">
+    <el-carousel indicator-position="outside" type="card" arrow="never">
       <el-carousel-item v-for="(item, index) in data" :key="index">
         <div class="company-desc-item" @click="handleImgClick(item)">
           <img class="company-desc-image" :src="item.summaryUrl" alt="">
@@ -129,6 +129,21 @@
 </style>
 
 <style scoped>
+.people-card {
+  height: 318px;
+}
+.people-card >>> .el-carousel{
+  height: 318px !important;
+}
+.people-card >>> .el-carousel__container {
+  height: 274px;
+}
+.people-card >>> .el-carousel__indicators {
+  bottom: 0 !important;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 .people-card >>> .el-carousel__indicator.is-active button {
   background-color: rgba(0, 186, 173, 1) !important;
 }

@@ -86,9 +86,7 @@
 
         <el-row class="fifthDiv company-desc-wrap">
           <div class="company-desc-title">公司简介</div>
-          <div>
-            <profiles-carousel ref="ProfilesCarousel" :data="proFiles" @imgClick="goProfessorDetail" />
-          </div>
+          <profiles-carousel ref="ProfilesCarousel" :data="proFiles" @imgClick="goProfessorDetail" />
         </el-row>
       </el-row>
     </div>
@@ -867,15 +865,15 @@ export default {
 .company-desc-title {
   margin: 80px 0 53px;
   text-align: center;
-  height: 46px;
+  height: 47px;
   font-size: 32px;
   font-family: AppleSystemUIFont;
   color: #262729;
-  line-height: 46px;
+  line-height: 47px;
 }
 
 .company-desc-wrap {
-  margin-bottom: 80px;
+  height: 578px;
 }
 
 .news>>>.el-carousel__container {
@@ -883,4 +881,5 @@ export default {
 }
 .news>>>.el-carousel__indicator.is-active button {
   background-color: rgba(0, 186, 173, 1) !important;
-}</style>
+}
+</style>
