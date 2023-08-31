@@ -11,7 +11,8 @@
           :key="index"
           style="margin-bottom: 24px; padding-right: 0px;"
         >
-          <div class="con-box-heads" v-on:click="goProfessorDetail(item)">
+          <div class="con-box-heads people-back" v-on:click="goProfessorDetail(item)">
+            <div class="people-card-mask"></div>
             <div class="con-box-image-boxs">
               <el-image class="el-images" :src="item.summaryUrl" />
             </div>
@@ -102,7 +103,7 @@ export default {
   text-align: center;
   font-size: 32px;
   font-family: AppleSystemUIFont;
-  color: #262729;
+  // color: #262729;
   line-height: 23px;
   margin-top: 80px;
   margin-bottom: 40px;
@@ -112,12 +113,35 @@ export default {
   padding: 0 18%;
 }
 .con-box-heads {
-  // width: 340px;
   height: 420px;
   cursor: pointer;
   border-radius: 10px;
-  background: rgba(29, 38, 58, 1);
+  box-sizing: border-box;
+  overflow: hidden;
 }
+
+.people-back {
+  position: relative;
+  color: #FFFFFF;
+  background-image: url(https://img.js.design/assets/img/6499bbc30fb19817d661c625.jpg#28f9233d2432cb7520f7935eeb1d4e2a);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+}
+.people-card-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: rgba(29, 38, 58, 0.8);
+  border-radius: 10px;
+}
+
 .con-box-image-boxs {
   margin-left: 35px;
   margin-top: 35px;
@@ -131,6 +155,7 @@ export default {
   box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 .con-box-name {
+  position: relative;
   margin-left: 33px;
   margin-top: 9px;
   font-size: 16px;
@@ -140,6 +165,7 @@ export default {
 }
 
 .con-box-bottom {
+  position: relative;
   height: 100px;
   font-size: 16px;
   font-family: AppleSystemUIFont;
@@ -147,6 +173,7 @@ export default {
   margin: 8px 33px;
 }
 .con-box-bottoms {
+  position: relative;
   font-size: 16px;
   font-family: AppleSystemUIFont;
   color: #ffffff;

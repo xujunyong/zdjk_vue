@@ -130,19 +130,17 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    // background: rgba(29, 38, 58, 0.8);
   }
   .people-card-mask {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-  height: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  /*background-color: rgba(0, 0, 0, 0.8);*/
-  background-color: rgba(29, 38, 58, 0.8);
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: rgba(29, 38, 58, 0.8);
   }
   .people-card-image-wrap {
     position: relative;
