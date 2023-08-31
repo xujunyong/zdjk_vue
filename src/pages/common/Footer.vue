@@ -90,7 +90,7 @@ export default {
 <style lang="scss" scoped>
 .el-footer {
   background: rgba(29, 38, 58, 1);
-  height: 380px !important;
+  height: 527px !important;
   position: relative;
   padding: 90px 0;
 }
@@ -128,20 +128,15 @@ export default {
 .sm_blow {
   display: flex;
   justify-content: center; /*主轴上居中*/
-  align-items: center; /*侧轴上居中*/
+  // align-items: center; /*侧轴上居中*/
   color: rgba(255, 255, 255, 1);
   font-size: 18px;
   font-family: SourcesHanSansSC-regular;
 }
-.blow_center {
-  text-align: left;
-  display: flex;
-  border-color: rgba(187, 187, 187, 1);
-  line-height: 34px;
-}
+
 .blow_left {
   text-align: left;
-  line-height: 30px;
+  line-height: 52px;
 }
 .blow_right {
   text-align: left;
