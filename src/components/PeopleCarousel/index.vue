@@ -1,6 +1,6 @@
 <template>
   <div class="people-card" style="margin-left: -9px; margin-right: 12px;">
-    <el-carousel indicator-position="outside" class="carousel" arrow="never">
+    <el-carousel indicator-position="outside" :autoplay="false" class="carousel" arrow="never">
       <el-carousel-item v-for="(item, index) in formatData" :key="index" style="height: 100% !important;">
         <div class="img-container" style="height: 100% !important;">
           <el-row :gutter="10" style="width: 100%; height: 100% !important;">
@@ -108,7 +108,6 @@
   .people-card-item {
     height: 495px;
     width: 100%;
-    margin: 0 12.5px;
     padding: 34px 34px 20px;
     background: #FFFFFF;
     color: #262729;
