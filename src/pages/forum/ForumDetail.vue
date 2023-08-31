@@ -62,7 +62,7 @@
 
       <div class="forumDetailExperts firstDiv">
         <div class="forumDetailHeader">专家列表</div>
-        <people-carousel :data="experts" />
+        <people-carousel :data="experts" :back="'1'" />
       </div>
 
     </div>
