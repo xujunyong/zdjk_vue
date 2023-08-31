@@ -2,7 +2,6 @@
   <el-container>
     <div style="width: 100%; position: relative">
       <el-row style="position: relative">
-        <!-- <div class="title-shadow"></div> -->
         <!-- 全过程咨询 -->
         <el-row class="consultation-container consultation-containers" :gutter="30">
           <div class="whole_process_consultation">全过程咨询</div>
@@ -56,10 +55,8 @@
           </el-row>
         </div>
         <!-- 专家列表 -->
-        <!-- style="height: 800px;" -->
         <el-row class="thirdDiv expert-list">
           <div class="div-mask">
-            <!-- style="padding-top: 80px; padding-bottom: 40px; line-height: 47px;" -->
             <div class="expert-list-title">专家列表</div>
             <people-carousel ref="PeopleCarousel" :data="experts" @imgClick="goProfessorDetail" />
           </div>

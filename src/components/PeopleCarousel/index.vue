@@ -1,13 +1,10 @@
 <template>
-  <!-- height: 558px; -->
   <div class="people-card" style="margin-left: -9px; margin-right: 12px;">
     <el-carousel indicator-position="outside" class="carousel" arrow="never">
       <el-carousel-item v-for="(item, index) in formatData" :key="index" style="height: 100% !important;">
         <div class="img-container" style="height: 100% !important;">
           <el-row :gutter="10" style="width: 100%; height: 100% !important;">
             <el-col :span="8" v-for="(img, imgIndex) in item" :key="imgIndex">
-              <!-- style="height: 495px;"  -->
-
               <div class="people-card-item" :class="{'people-back': back == '1'}" @click="handleImgClick(img)">
                 <div v-if="back == '1'" :class="{'people-card-mask': back == '1'}"></div>
                 <div class="people-card-image-wrap">
@@ -15,9 +12,6 @@
                 </div>
                 <div class="people-name">{{ img.name }}</div>
                 <div class="people-desc" v-html="img.content"></div>
-                <!-- <div class="people-desc">
-                  这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字
-                </div> -->
                 <div class="people-job">这是职业？</div>
                 <div class="people-mobile" :class="{'mobile-back': back == '1'}">18909876543</div>
               </div>

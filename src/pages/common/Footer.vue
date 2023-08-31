@@ -26,7 +26,7 @@
         </el-row>
         <el-row class="sm_blow" style="margin-top: 20px;">
           <el-col :span="6">
-            <div class="blow_right" style="text-align: center;">
+            <div class="blow_right blow-tops" style="text-align: center;">
               <img :src="webSetData.qrCode" />
             </div>
           </el-col>
@@ -154,5 +154,8 @@ export default {
     margin: 0 auto;
     margin-bottom: 14px;
   }
+}
+.blow-tops {
+  margin-top: 10px;
 }
 </style>

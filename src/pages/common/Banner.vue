@@ -1,13 +1,8 @@
 <template>
   <div>
-    <el-carousel :height="widths * 0.48125 + 'px'">
+    <el-carousel :height="widths * 0.48125 + 'px'" indicator-position="none">
       <el-carousel-item v-for="item in pics" :key="item.id">
         <el-image :src=item.url style="width: 100%; height: 100%"></el-image>
-        <!-- <div class="logo-box">
-          <el-col :span="24" style="text-align: center" v-on:click="iconClick">
-            <img v-on:click="iconClick" class="logo" src="@/assets/images/logo-diaphragm.png" alt="logo">
-          </el-col>
-        </div> -->
       </el-carousel-item>
     </el-carousel>
   </div>
