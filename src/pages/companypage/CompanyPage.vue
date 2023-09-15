@@ -41,7 +41,6 @@ export default {
   },
   data() {
     return {
-      imgPath: "/static/img/banner2.jpg",
       imgLabel: "",
       consultationLocalPageName: "全过程咨询",
       nowPageName: "公司简介",
@@ -71,7 +70,7 @@ export default {
   methods: {
     init() {
       this.imgLabel = this.$route.query.navType;
-      this.initKey = this.$route.query.initKey;
+      this.initKey = this.$route.query.activeIndex;
       if (this.$route.query.contentName) {
         this.contentName = this.$route.query.contentName;
       }

@@ -12,8 +12,8 @@
                 </div>
                 <div class="people-name">{{ img.name }}</div>
                 <div class="people-desc" v-html="img.content"></div>
-                <div class="people-job">这是职业？</div>
-                <div class="people-mobile" :class="{'mobile-back': back == '1'}">18909876543</div>
+                <div class="people-job">{{ img.career }}</div>
+                <div class="people-mobile" :class="{'mobile-back': back == '1'}">{{ img.tel }}</div>
               </div>
             </el-col>
           </el-row>

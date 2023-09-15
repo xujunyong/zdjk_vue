@@ -22,8 +22,8 @@
             <div class="con-box-bottom">
               田赔程？砾闻钡绞莲敬舶镜巢辈录抢团班蛄楔华能埃楼；音圈蝈馈民蒂演匝。
             </div>
-            <div class="con-box-bottoms">求生员</div>
-            <div class="con-box-bottoms">13123123213</div>
+            <div class="con-box-bottoms">{{ item.career }}</div>
+            <div class="con-box-bottoms">{{ item.tel }}</div>
           </div>
         </el-col>
       </el-row>
@@ -81,6 +81,7 @@ export default {
       this.loading = true;
       listExpert(this.queryParams).then((response) => {
         this.experts = response.data.rows;
+        console.log(this.expert)
         this.total = response.data.total;
       });
     },

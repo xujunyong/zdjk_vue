@@ -11,7 +11,7 @@
                 item.name,
                 item.dictType,
                 item.contentName,
-                item.activeIndex
+                item.initKey
               )
               ">
               <div class="con-box-image-boxs">
@@ -100,6 +100,7 @@ import shouxu from "../../../assets/images/shouxu.png";
 import caikuang from "../../../assets/images/caikuang.png";
 import anquan from "../../../assets/images/anquan.png";
 import tudi from "../../../assets/images/tudi.png";
+import lincao from "../../../assets/images/lincao.png";
 import shuili from "../../../assets/images/shuili.png";
 import shigong from "../../../assets/images/shigong.png";
 import jungong from "../../../assets/images/jungong.png";
@@ -193,6 +194,21 @@ export default {
             { contentName: "林草占用批复", activeIndex: 0 },
             { contentName: "土地征收", activeIndex: 1 },
             { contentName: "土地报批", activeIndex: 2 },
+          ],
+        },
+        {
+          icon: lincao,
+          name: "林草手续办理",
+          dictType: "consultation_forest_grass",
+          initKey: 138,
+          contentName: "林草占用批复",
+          activeIndex: 0,
+          content: [
+            { contentName: "林业、草原规划设计", activeIndex: 0 },
+            { contentName: "生态植被恢复方案\n", activeIndex: 1 },
+            { contentName: "生物多样性影响评价\n", activeIndex: 2 },
+            { contentName: "建设项目使用林地可行性报告编制\n", activeIndex: 3 },
+            { contentName: "征占用林地草地审批\n", activeIndex: 4 },
           ],
         },
         {

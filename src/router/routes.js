@@ -2,7 +2,8 @@ import HomePage from '@/pages/homepage/HomePage'
 import CompanyPage from '@/pages/companypage/CompanyPage'
 import Professor from '@/pages/productpage/Professor'
 import News from '@/pages/news/news'
-import Detail from '@/pages/common/Detail2'
+import Detail from '@/pages/common/Detail'
+import Detail2 from '@/pages/common/Detail2'
 import AlliancePage from '@/pages/alliancepage/AlliancePage'
 import AboutPage from '@/pages/aboutpage/AboutPage'
 import Consultation from '@/pages/consultation/ConsulationPage'
@@ -10,6 +11,7 @@ import ForumHome from '@/pages/forum/ForumHome'
 import ForumDetail from '@/pages/forum/ForumDetail'
 import Login from '@/pages/common/Login'
 import Register from '@/pages/common/Register'
+import BrandIntroduce from '@/pages/alliancepage/components/BrandIntroduce'
 
 const routes = [
   { path: '/', redirect: '/website' },
@@ -122,6 +124,16 @@ const routes = [
     component: Register,
     meta: {
       title: '中地基勘注册',
+      navShow: false,
+      isNotLogin: false
+    }
+  },
+  {
+    path: '/website/BrandIntroduce',
+    name: 'BrandIntroduce',
+    component: BrandIntroduce,
+    meta: {
+      title: 'BrandIntroduce',
       navShow: false,
       isNotLogin: false
     }

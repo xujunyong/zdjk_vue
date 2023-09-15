@@ -55,6 +55,7 @@ import shigong from "../../assets/images/shigong.png";
 import jungong from "../../assets/images/jungong.png";
 import qita from "../../assets/images/qita.png";
 import gongsijianjie from "../../assets/images/gongsijianjie.png";
+import lincao from "@/assets/images/lincao.png";
 
 export default {
   name: "CompanyPage",
@@ -115,6 +116,21 @@ export default {
             { contentName: "林草占用批复", url: "" },
             { contentName: "土地征收", url: "" },
             { contentName: "土地报批", url: "" },
+          ],
+        },
+        {
+          icon: lincao,
+          name: "林草手续办理",
+          dictType: "consultation_forest_grass",
+          initKey: 138,
+          contentName: "林草占用批复",
+          activeIndex: 0,
+          content: [
+            { contentName: "林业、草原规划设计", activeIndex: 0 },
+            { contentName: "生态植被恢复方案\n", activeIndex: 1 },
+            { contentName: "生物多样性影响评价\n", activeIndex: 2 },
+            { contentName: "建设项目使用林地可行性报告编制\n", activeIndex: 3 },
+            { contentName: "征占用林地草地审批\n", activeIndex: 4 },
           ],
         },
         {

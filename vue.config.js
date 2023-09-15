@@ -41,12 +41,12 @@ module.exports = {
     proxy: {
       // detail: https://cli.vuejs.org/config/#devserver-proxy
       [process.env.VUE_APP_BASE_API]: {
-        // target: `http://localhost:8080`,
+        target: `http://localhost:8080`,
         // target: `http://192.168.1.109:8080`, // 辛少
         // target: `http://192.168.1.110:8080`, // 帅哥
         // target: `http://127.0.0.1:8080`,
         // target: `http://192.168.1.103:8080`,
-        target: `http://43.140.197.9:80/prod-api`,
+        // target: `http://43.140.197.9:80/prod-api`,
         // target: `https://lims.nmzj.com.cn/prod-api`,
         changeOrigin: true,
         pathRewrite: {

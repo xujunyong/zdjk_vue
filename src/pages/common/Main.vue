@@ -46,7 +46,8 @@ export default {
   },
   data () {
     return {
-      activeIndex: 0
+      activeIndex: 0,
+      contentTitle: ""
     }
   },
   mounted (){
@@ -57,10 +58,13 @@ export default {
   },
   methods: {
     init(){
-      this.activeIndex = this.$route.query.activeIndex;
+      this.activeIndex = 0;
+      this.contentTitle = this.$route.query.contentName;
     },
     handleSelect (val) {
       this.activeIndex = val.toString()
+      console.log(this.menus[val])
+      this.contentTitle = this.menus[val].label;
       this.$emit('clickSideMenu', this.menus[val].key)
     },
     getList(){

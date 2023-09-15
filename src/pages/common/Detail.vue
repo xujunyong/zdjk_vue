@@ -53,6 +53,11 @@ export default {
 };
 </script>
 <style scoped>
+
+.ql-align-center{
+  text-align: center;
+}
+
 .coordinate {
   margin-top: 10px;
   line-height: 30px;

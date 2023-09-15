@@ -95,7 +95,12 @@ export default {
           id: "nav6",
           label: "中地论坛",
           path: "/website/forumHome",
-        },
+        }
+        // {
+        //   id: "nav7",
+        //   label: "BrandIntroduce",
+        //   path: "/website/BrandIntroduce",
+        // },
       ],
       loginStatus: true,
       menu_style: "",
